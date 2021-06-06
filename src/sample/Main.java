@@ -6,14 +6,25 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class Main extends Application {
+
+    private static Stage stg;
 
     @Override
     public void start(Stage stage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("cinemaBookingView.fxml"));
+        stg = stage;
+        stage.setResizable(false); //perhaps remove
+        Parent root = FXMLLoader.load(getClass().getResource("logInPage.fxml"));
         stage.setTitle("Cinema");
         stage.setScene(new Scene(root));
         stage.show();
+    }
+
+    public void changeScene(String fxml) throws IOException {
+        Parent pane = FXMLLoader.load(getClass().getResource(fxml));
+        stg.getScene().setRoot(pane);
     }
 
 
