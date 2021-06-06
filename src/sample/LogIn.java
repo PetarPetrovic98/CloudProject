@@ -35,7 +35,7 @@ public class LogIn {
         if(username.getText().toString().equals("marija") && password.getText().toString().equals("12345")) {
             wrongLogIn.setText("Success!");
 
-            m.changeScene("cinemaBookingView.fxml");
+            m.changeScene("welcomePage.fxml");
         }
 
         else if(username.getText().isEmpty() && password.getText().isEmpty()) {

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane dividerPositions="0.3" prefHeight="506.0" prefWidth="745.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.welcome">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="161.0" styleClass="background" stylesheets="@style.css">
+         <children>
+            <Button fx:id="logOutButton" layoutX="36.0" layoutY="436.0" mnemonicParsing="false" onAction="#userLogOut" prefHeight="31.0" prefWidth="149.0" stylesheets="@style.css" text="Log out" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Label layoutX="42.0" layoutY="207.0" text="Hi," textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="173.0" fitWidth="165.0" layoutX="28.0" layoutY="24.0">
+               <image>
+                  <Image url="@../Images/defaultuser.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="74.0" layoutY="207.0" text="username" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+         <children>
+            <ImageView fitHeight="149.0" fitWidth="200.0" layoutX="159.0" layoutY="14.0">
+               <image>
+                  <Image url="@../Images/welcome.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="slideShow" fitHeight="305.0" fitWidth="235.0" layoutX="156.0" layoutY="185.0" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/cruellasmaller.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+  </items>
+</SplitPane>

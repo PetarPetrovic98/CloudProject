@@ -9,3 +9,7 @@
     .button-hover .glyph-icon{
         -fx-fill: white;
  */
+
+.background{
+    -fx-background-color: #21232F;
+}
