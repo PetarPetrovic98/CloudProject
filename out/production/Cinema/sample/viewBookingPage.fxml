@@ -3,12 +3,14 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.3" prefHeight="506.0" prefWidth="745.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.welcome">
+<SplitPane dividerPositions="0.3" prefHeight="506.0" prefWidth="745.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.viewBooking">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="161.0" styleClass="background" stylesheets="@style.css">
          <children>
@@ -32,12 +34,17 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Button fx:id="viewFilms" layoutX="-1.0" layoutY="265.0" mnemonicParsing="false" onAction="#viewFilms" prefHeight="45.0" prefWidth="220.0" styleClass="button2" stylesheets="@style.css" text="View Films" textFill="#ed7e15">
+            <Button layoutX="-1.0" layoutY="265.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="220.0" styleClass="button2" stylesheets="@style.css" text="View Films" textFill="#ed7e15">
                <font>
                   <Font name="System Bold Italic" size="23.0" />
                </font>
             </Button>
-            <Button fx:id="viewBookings" layoutY="315.0" mnemonicParsing="false" onAction="#viewBookings" prefHeight="45.0" prefWidth="220.0" styleClass="button2" stylesheets="@style.css" text="View Bookngs" textFill="#ed7e15">
+            <Button fx:id="back" cancelButton="true" layoutX="36.0" layoutY="398.0" mnemonicParsing="false" onAction="#backButton" prefHeight="25.0" prefWidth="149.0" text="Back">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutY="315.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="220.0" text="View Bookngs" textFill="#ed7e15">
                <font>
                   <Font name="System Bold Italic" size="23.0" />
                </font>
@@ -46,17 +53,14 @@
       </AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #c4c4c4;">
          <children>
-            <ImageView fx:id="slideShow" fitHeight="305.0" fitWidth="235.0" layoutX="156.0" layoutY="185.0" preserveRatio="true">
-               <image>
-                  <Image url="@../Images/cruellasmaller.jpg" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="149.0" fitWidth="200.0" layoutX="159.0" layoutY="14.0">
-               <image>
-                  <Image url="@../Images/welcome.jpg" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
+            <TableView layoutX="-1.0" layoutY="3.0" prefHeight="504.0" prefWidth="517.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="Order ID" />
+                <TableColumn minWidth="0.0" prefWidth="194.0" text="Movie" />
+                  <TableColumn prefWidth="87.0" text="Date" />
+                  <TableColumn minWidth="8.0" prefWidth="75.0" text="People" />
+              </columns>
+            </TableView>
+         </children></AnchorPane>
   </items>
 </SplitPane>

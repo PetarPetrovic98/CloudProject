@@ -50,6 +50,16 @@ public class welcome { //implements Initializable {
         m.changeScene("loginPage.fxml");
     }
 
+    public void viewFilms(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("filmsPage.fxml");
+    }
+
+    public void viewBookings(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("viewBookingPage.fxml");
+    }
+
   /*  @Override
     public void initialize(URL location, ResourceBundle resourceBundle) {
         slideshow();

@@ -10,6 +10,14 @@
         -fx-fill: white;
  */
 
+.button2{
+    -fx-background-color: #21232F;
+}
+.button2:hover{
+    -fx-background-color: white;
+    -fx-text-fill: black;
+}
+
 .background{
     -fx-background-color: #21232F;
 }

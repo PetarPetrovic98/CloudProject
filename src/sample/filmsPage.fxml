@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.3" prefHeight="506.0" prefWidth="745.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.welcome">
+<SplitPane dividerPositions="0.3" prefHeight="506.0" prefWidth="745.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.films">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="161.0" styleClass="background" stylesheets="@style.css">
          <children>
@@ -32,7 +32,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Button fx:id="viewFilms" layoutX="-1.0" layoutY="265.0" mnemonicParsing="false" onAction="#viewFilms" prefHeight="45.0" prefWidth="220.0" styleClass="button2" stylesheets="@style.css" text="View Films" textFill="#ed7e15">
+            <Button layoutX="-1.0" layoutY="265.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="220.0" text="View Films" textFill="#ed7e15">
                <font>
                   <Font name="System Bold Italic" size="23.0" />
                </font>
@@ -42,18 +42,38 @@
                   <Font name="System Bold Italic" size="23.0" />
                </font>
             </Button>
+            <Button fx:id="back" cancelButton="true" layoutX="35.0" layoutY="394.0" mnemonicParsing="false" onAction="#backButton" prefHeight="25.0" prefWidth="149.0" text="Back">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #c4c4c4;">
          <children>
-            <ImageView fx:id="slideShow" fitHeight="305.0" fitWidth="235.0" layoutX="156.0" layoutY="185.0" preserveRatio="true">
+            <ImageView fx:id="cruella" fitHeight="229.0" fitWidth="160.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#viewCruella">
                <image>
-                  <Image url="@../Images/cruellasmaller.jpg" />
+                  <Image url="@../Images/cruella.jpg" />
                </image>
             </ImageView>
-            <ImageView fitHeight="149.0" fitWidth="200.0" layoutX="159.0" layoutY="14.0">
+            <ImageView fx:id="godzillavskong" fitHeight="229.0" fitWidth="160.0" layoutX="188.0" layoutY="14.0">
                <image>
-                  <Image url="@../Images/welcome.jpg" />
+                  <Image url="@../Images/godzillavskong.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="spiral" fitHeight="229.0" fitWidth="149.0" layoutX="354.0" layoutY="14.0">
+               <image>
+                  <Image url="@../Images/spiral.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="nobody" fitHeight="223.0" fitWidth="160.0" layoutX="14.0" layoutY="260.0">
+               <image>
+                  <Image url="@../Images/nobody.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="tove" fitHeight="223.0" fitWidth="315.0" layoutX="188.0" layoutY="260.0">
+               <image>
+                  <Image url="@../Images/tove_banner.jpeg" />
                </image>
             </ImageView>
          </children>
