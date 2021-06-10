@@ -23,7 +23,7 @@ public class DBRequests {
         }
 
         System.out.print(result.toString());
-        
+
     }
 
     private void recivedReceiptRequest(String order_id, String movie_id, String booked_date, int people, String seat, String username) throws IOException {
