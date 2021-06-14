@@ -9,10 +9,10 @@ import java.net.URL;
 public class DBRequests {
 
     //When a client books a movie this method is called
-    private void orderRequest(String timestamp, String booked_date, String movie_id, String user_id, int seat) throws IOException {
+    public void createOrders(String timestamp, String booked_date, String movie_id, String user_id, int [] seats) throws IOException {
 
         StringBuilder result = new StringBuilder();
-        URL url = new URL("https://murmuring-plateau-65295.herokuapp.com/orders?timestamp="+timestamp+"&booked_date="+booked_date+"&movie_id="+movie_id+"&user_id="+user_id+"&seats="+user_id);
+        URL url = new URL("https://murmuring-plateau-65295.herokuapp.com/orders?timestamp="+timestamp+"&booked_date="+booked_date+"&movie_id="+movie_id+"&user_id="+user_id+"&seats="+seats);
 
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("POST");
@@ -28,7 +28,7 @@ public class DBRequests {
     }
 
     //When a client views the orders this method is called
-    private void orderRequest(int user_id) throws IOException {
+    public void viewOrders(int user_id) throws IOException {
 
         StringBuilder result = new StringBuilder();
         URL url = new URL("https://murmuring-plateau-65295.herokuapp.com/ORDERS?user_id="+user_id);
@@ -48,7 +48,7 @@ public class DBRequests {
     }
 
     //To be able to see what seats are booked/free, this method is called
-    private void returnSeatRequest(int movie_id, String booked_date) throws IOException {
+    public void returnFreeSeat(int movie_id, String booked_date) throws IOException {
 
         StringBuilder result = new StringBuilder();
         URL url = new URL("https://murmuring-plateau-65295.herokuapp.com/occupiedSeats?movie_id="+movie_id+"&booked_date="+booked_date);
