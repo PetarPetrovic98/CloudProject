@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<SplitPane dividerPositions="0.3" prefHeight="506.0" prefWidth="745.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.cruella">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="161.0" styleClass="background" stylesheets="@style.css">
+         <children>
+            <Button fx:id="logOutButton" layoutX="36.0" layoutY="436.0" mnemonicParsing="false" onAction="#userLogOut" prefHeight="31.0" prefWidth="149.0" stylesheets="@style.css" text="Log out" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="back" cancelButton="true" layoutX="35.0" layoutY="394.0" mnemonicParsing="false" onAction="#backButton" prefHeight="25.0" prefWidth="149.0" text="Back">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="333.0" fitWidth="220.0" layoutX="-7.0" layoutY="51.0" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/Spirallarge.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="background" stylesheets="@style.css">
+         <children>
+            <Label layoutX="37.0" layoutY="14.0" prefHeight="96.0" prefWidth="475.0" text="Spiral" textFill="WHITE">
+               <font>
+                  <Font size="41.0" />
+               </font>
+            </Label>
+            <Label layoutX="37.0" layoutY="94.0" prefHeight="25.0" prefWidth="220.0" text="R   1h33min  Crime, Horror, Mystery" textFill="WHITE" />
+            <Label fx:id="infoLabel" layoutX="37.0" layoutY="119.0" prefHeight="116.0" prefWidth="451.0" text="Text" textFill="WHITE" wrapText="true" />
+            <Label alignment="CENTER_RIGHT" layoutX="37.0" layoutY="289.0" prefHeight="31.0" prefWidth="56.0" text="From:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" layoutX="37.0" layoutY="314.0" prefHeight="31.0" prefWidth="56.0" text="To:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" layoutX="37.0" layoutY="337.0" prefHeight="31.0" prefWidth="56.0" text="Times:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="109.0" layoutY="289.0" prefHeight="31.0" prefWidth="149.0" text="2021-05-28" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="109.0" layoutY="314.0" prefHeight="31.0" prefWidth="149.0" text="2021-06-30" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="109.0" layoutY="337.0" prefHeight="31.0" prefWidth="149.0" text="20.45" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="booknow3" cancelButton="true" layoutX="148.0" layoutY="405.0" mnemonicParsing="false" onAction="#bookNow" prefHeight="47.0" prefWidth="229.0" text="Book Now">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+  </items>
+</SplitPane>
