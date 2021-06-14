@@ -28,7 +28,7 @@ public class DBRequests {
     }
 
     //When a client views the orders this method is called
-    public void viewOrders(int user_id) throws IOException {
+    public String viewOrders(int user_id) throws IOException {
 
         StringBuilder result = new StringBuilder();
         URL url = new URL("https://murmuring-plateau-65295.herokuapp.com/ORDERS?user_id="+user_id);
@@ -43,12 +43,12 @@ public class DBRequests {
         }
 
         System.out.print(result.toString());
-
+        return result.toString();
         //TODO: Send the variables to the corresponding UI
     }
 
     //To be able to see what seats are booked/free, this method is called
-    public void returnFreeSeat(int movie_id, String booked_date) throws IOException {
+    public String returnFreeSeat(int movie_id, String booked_date) throws IOException {
 
         StringBuilder result = new StringBuilder();
         URL url = new URL("https://murmuring-plateau-65295.herokuapp.com/occupiedSeats?movie_id="+movie_id+"&booked_date="+booked_date);
@@ -63,7 +63,7 @@ public class DBRequests {
         }
 
         System.out.print(result.toString());
-
+        return result.toString();
         //TODO: Send the variables to the corresponding UI
     }
 }
