@@ -1,10 +1,18 @@
 package sample;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 
 import java.io.IOException;
 
 public class cruella {
+
+    @FXML
+    private Label movieTitle;
+
+    @FXML
+    private Label timeLabel;
 
     public void userLogOut(ActionEvent event) throws IOException {
         Main m = new Main();
@@ -18,6 +26,9 @@ public class cruella {
 
     public void bookNow(ActionEvent event) throws IOException {
         Main m = new Main();
+        MovieSingleton movieSingleton = MovieSingleton.getInstance();
+        movieSingleton.setMovieTitle(movieSingleton.getMovieTitle());
+        movieSingleton.setTime(movieSingleton.getTime());
         m.changeScene("cinemaBookingView.fxml");
     }
 }

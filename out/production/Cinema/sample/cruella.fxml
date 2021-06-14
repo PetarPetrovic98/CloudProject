@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.3" prefHeight="506.0" prefWidth="745.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.cruella">
+<SplitPane dividerPositions="0.3" prefHeight="506.0" prefWidth="745.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.cruella">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="161.0" styleClass="background" stylesheets="@style.css">
          <children>
@@ -31,7 +31,7 @@
       </AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="background" stylesheets="@style.css">
          <children>
-            <Label layoutX="37.0" layoutY="14.0" prefHeight="96.0" prefWidth="475.0" text="Cruella" textFill="WHITE">
+            <Label fx:id="movieTitle" layoutX="37.0" layoutY="14.0" prefHeight="96.0" prefWidth="475.0" text="Cruella" textFill="WHITE">
                <font>
                   <Font size="41.0" />
                </font>
@@ -63,7 +63,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="109.0" layoutY="337.0" prefHeight="31.0" prefWidth="149.0" text="17.50" textFill="WHITE">
+            <Label fx:id="timeLabel" layoutX="109.0" layoutY="337.0" prefHeight="31.0" prefWidth="149.0" text="17.50" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
