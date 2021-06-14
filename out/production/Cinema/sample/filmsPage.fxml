@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<SplitPane dividerPositions="0.3" prefHeight="506.0" prefWidth="745.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.films">
+<SplitPane dividerPositions="0.3" prefHeight="506.0" prefWidth="745.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.films">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="161.0" styleClass="background" stylesheets="@style.css">
          <children>
@@ -56,22 +53,22 @@
                   <Image url="@../Images/cruella.jpg" />
                </image>
             </ImageView>
-            <ImageView fx:id="godzillavskong" fitHeight="229.0" fitWidth="160.0" layoutX="188.0" layoutY="14.0">
+            <ImageView fx:id="godzillavskong" fitHeight="229.0" fitWidth="160.0" layoutX="188.0" layoutY="14.0" onMouseClicked="#viewKong">
                <image>
                   <Image url="@../Images/godzillavskong.jpg" />
                </image>
             </ImageView>
-            <ImageView fx:id="spiral" fitHeight="229.0" fitWidth="149.0" layoutX="354.0" layoutY="14.0">
+            <ImageView fx:id="spiral" fitHeight="229.0" fitWidth="149.0" layoutX="354.0" layoutY="14.0" onMouseClicked="#viewSpiral">
                <image>
                   <Image url="@../Images/spiral.jpg" />
                </image>
             </ImageView>
-            <ImageView fx:id="nobody" fitHeight="223.0" fitWidth="160.0" layoutX="14.0" layoutY="260.0">
+            <ImageView fx:id="nobody" fitHeight="223.0" fitWidth="160.0" layoutX="14.0" layoutY="260.0" onMouseClicked="#vievNobody">
                <image>
                   <Image url="@../Images/nobody.jpg" />
                </image>
             </ImageView>
-            <ImageView fx:id="tove" fitHeight="223.0" fitWidth="315.0" layoutX="188.0" layoutY="260.0">
+            <ImageView fx:id="tove" fitHeight="223.0" fitWidth="315.0" layoutX="188.0" layoutY="260.0" onMouseClicked="#viewTove">
                <image>
                   <Image url="@../Images/tove_banner.jpeg" />
                </image>

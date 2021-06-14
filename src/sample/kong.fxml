@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.3" prefHeight="506.0" prefWidth="745.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.cruella">
+<SplitPane dividerPositions="0.3" prefHeight="506.0" prefWidth="745.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.cruella">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="161.0" styleClass="background" stylesheets="@style.css">
          <children>
@@ -24,20 +24,20 @@
             </Button>
             <ImageView fitHeight="333.0" fitWidth="220.0" layoutX="-7.0" layoutY="51.0" preserveRatio="true">
                <image>
-                  <Image url="@../Images/cruella.jpg" />
+                  <Image url="@../Images/godvskong.jpg" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="background" stylesheets="@style.css">
          <children>
-            <Label fx:id="movieTitle" layoutX="37.0" layoutY="14.0" prefHeight="96.0" prefWidth="475.0" text="Cruella" textFill="WHITE">
+            <Label layoutX="37.0" layoutY="14.0" prefHeight="96.0" prefWidth="475.0" text="Godzilla vs. Kong" textFill="WHITE">
                <font>
                   <Font size="41.0" />
                </font>
             </Label>
-            <Label layoutX="37.0" layoutY="94.0" prefHeight="25.0" prefWidth="220.0" text="PG-13   2h14min  Comedy, Crime" textFill="WHITE" />
-            <Label layoutX="37.0" layoutY="119.0" prefHeight="116.0" prefWidth="451.0" text="Estella is a young and clever grifter who's determined to make a name for herself in the fashion world. She soon meets a pair of thieves who appreciate her appetite for mischief, and together they build a life for themselves on the streets of London. However, when Estella befriends fashion legend Baroness von Hellman, she embraces her wicked side to become the raucous and revenge-bent Cruella." textFill="WHITE" wrapText="true" />
+            <Label layoutX="37.0" layoutY="94.0" prefHeight="25.0" prefWidth="220.0" text="PG-13   1h54min  Action, Sci-Fi, Thriller" textFill="WHITE" />
+            <Label fx:id="infoLabel" layoutX="37.0" layoutY="119.0" prefHeight="116.0" prefWidth="451.0" text="Text" textFill="WHITE" wrapText="true" />
             <Label alignment="CENTER_RIGHT" layoutX="37.0" layoutY="289.0" prefHeight="31.0" prefWidth="56.0" text="From:" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
@@ -63,12 +63,12 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="timeLabel" layoutX="109.0" layoutY="337.0" prefHeight="31.0" prefWidth="149.0" text="17.50" textFill="WHITE">
+            <Label layoutX="109.0" layoutY="337.0" prefHeight="31.0" prefWidth="149.0" text="17.50" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Button fx:id="booknow" cancelButton="true" layoutX="148.0" layoutY="405.0" mnemonicParsing="false" onAction="#bookNow" prefHeight="47.0" prefWidth="229.0" text="Book Now">
+            <Button fx:id="booknow2" cancelButton="true" layoutX="148.0" layoutY="405.0" mnemonicParsing="false" onAction="#bookNow" prefHeight="47.0" prefWidth="229.0" text="Book Now">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
