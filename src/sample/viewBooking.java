@@ -10,6 +10,11 @@ public class viewBooking {
         m.changeScene("loginPage.fxml");
     }
 
+    public void viewFilms(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("filmsPage.fxml");
+    }
+
     public void backButton(ActionEvent event) throws IOException {
         Main m = new Main();
         m.changeScene("welcomePage.fxml");
