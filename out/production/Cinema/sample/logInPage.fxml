@@ -57,12 +57,12 @@
                   <Font name="System Bold Italic" size="46.0" />
                </font>
             </Label>
-            <TextField fx:id="username" layoutX="444.0" layoutY="163.0" promptText="username">
+            <TextField fx:id="username" layoutX="444.0" layoutY="163.0" onAction="#changeFocus" promptText="username">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </TextField>
-            <PasswordField fx:id="password" layoutX="444.0" layoutY="196.0" promptText="password">
+            <PasswordField fx:id="password" layoutX="444.0" layoutY="196.0" onAction="#userLogIn" promptText="password">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor>

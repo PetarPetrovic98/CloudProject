@@ -29,6 +29,9 @@ public class LogIn {
     @FXML
     private PasswordField password;
 
+    public void changeFocus(ActionEvent event) throws IOException {
+        if (username.isFocused()) password.requestFocus();
+    }
 
     public void userLogIn(ActionEvent event) throws IOException {
         login();
