@@ -21,3 +21,7 @@
 .background{
     -fx-background-color: #21232F;
 }
+
+.text-field:focused {
+    -fx-prompt-text-fill: derive(-fx-control-inner-background,-30%);
+}
