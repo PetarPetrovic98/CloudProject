@@ -41,10 +41,7 @@ public class DBRequests {
                 result.append(line);
             }
         }
-
-        System.out.print(result.toString());
         return result.toString();
-
     }
 
     //To be able to see what seats are booked/free, this method is called
@@ -61,8 +58,7 @@ public class DBRequests {
                 result.append(line);
             }
         }
-
-        System.out.print(result.toString());
+        System.out.println("Före");
         return result.toString();
 
     }
