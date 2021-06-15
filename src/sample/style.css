@@ -3,12 +3,13 @@
     -fx-text-fill: white;
 }
 
-/* .glyph-icon{
-    -fx-fill: red;
+/*#image {
+    filter: grayscale(100%);
+}
 
-    .button-hover .glyph-icon{
-        -fx-fill: white;
- */
+.button-hover .image {
+    -fx-image: invert(100%);
+} */
 
 .button2{
     -fx-background-color: #21232F;
@@ -18,6 +19,20 @@
     -fx-text-fill: black;
 }
 
+.seat-button {
+    -fx-graphic: url("/seat.png");
+}
+
+.seat-button:hover {
+    -fx-graphic: url("/seat1inverted.png");
+    -fx-background-color: black;
+    -fx-text-fill: white;
+}
+
 .background{
     -fx-background-color: #21232F;
+}
+
+.text-field:focused {
+    -fx-prompt-text-fill: derive(-fx-control-inner-background,-30%);
 }
