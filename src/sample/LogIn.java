@@ -1,4 +1,5 @@
 package sample;
+import com.google.gson.Gson;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -49,6 +50,19 @@ public class LogIn {
                 result.append(line);
                 System.out.println(result);
             }
+
+            String json = result.toString();
+
+            Gson gson = new Gson();
+
+            UserWrapper user = gson.fromJson(json, UserWrapper.class);
+
+            UserSingleton userSingleton = UserSingleton.getInstance();
+            userSingleton.setUsername(user.username);
+            userSingleton.setUser_id(user.user_id);
+            
+
+
         }catch (IOException e){
             if (username.getText().isEmpty() || password.getText().isEmpty())
                 wrongLogIn.setText("Please enter your data.");
@@ -60,5 +74,10 @@ public class LogIn {
 
         Main m = new Main();
         m.changeScene("welcomePage.fxml");
+    }
+
+    public class UserWrapper {
+        public String username = null;
+        public int    user_id = 0;
     }
 }
