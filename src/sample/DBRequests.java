@@ -1,30 +1,51 @@
 package sample;
 
+import com.google.gson.Gson;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 
 public class DBRequests {
 
     //When a client books a movie this method is called
-    public void createOrders(String timestamp, String booked_date, String movie_id, String user_id, int [] seats) throws IOException {
+    public void createOrders(Order order) throws IOException {
 
         StringBuilder result = new StringBuilder();
-        URL url = new URL("https://murmuring-plateau-65295.herokuapp.com/orders?timestamp="+timestamp+"&booked_date="+booked_date+"&movie_id="+movie_id+"&user_id="+user_id+"&seats="+seats);
+        URL url = new URL("https://murmuring-plateau-65295.herokuapp.com/ordersTest");
 
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("POST");
+        conn.setDoOutput(true);
+        conn.setRequestProperty("Content-Type", "application/json");
 
-        try (var reader = new BufferedReader(new InputStreamReader(conn.getInputStream()))) {
-            for (String line; (line = reader.readLine()) != null; ) {
-                result.append(line);
-            }
+        // order is only for testing
+        ArrayList<Integer> seats = new ArrayList<>();
+        seats.add(1);
+        seats.add(2);
+        order = new Order("2021-06-06 12:24:31", "2021-06-10", 25, 35, seats);
+
+        Gson gson = new Gson();
+        String data = gson.toJson(order);
+
+        try(OutputStream os = conn.getOutputStream()) {
+            byte[] input = data.getBytes("utf-8");
+            os.write(input, 0, input.length);
         }
 
-        System.out.print(result.toString());
-
+        try(BufferedReader br = new BufferedReader(
+                new InputStreamReader(conn.getInputStream(), "utf-8"))) {
+            StringBuilder response = new StringBuilder();
+            String responseLine = null;
+            while ((responseLine = br.readLine()) != null) {
+                response.append(responseLine.trim());
+            }
+            System.out.println(response.toString());
+        }
     }
 
     //When a client views the orders this method is called
