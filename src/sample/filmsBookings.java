@@ -36,19 +36,23 @@ public class filmsBookings implements Initializable {
 
     MovieSingleton movieSingleton;
 
+    @FXML
     public void userLogOut(ActionEvent event) throws IOException {
         Main m = new Main();
         m.changeScene("loginPage.fxml");
     }
 
+    @FXML
     public void backButton(ActionEvent event) throws IOException {
         Main m = new Main();
         m.changeScene("welcomePage.fxml");
     }
 
+    @FXML
     public void viewBookings(ActionEvent event) throws IOException, JSONException {
         Main m = new Main();
         m.changeScene("viewBookingPage.fxml");
+        System.out.println("Hello");
 
         //get user_id so we can get values from the current logged in user
         int userId = 1;
@@ -73,9 +77,12 @@ public class filmsBookings implements Initializable {
         peopleTableColumn.setCellValueFactory(new PropertyValueFactory<>("peopleBooked"));
 
         tableView.setItems(list);
+    }
 
-
-
+    @FXML
+    public void viewFilms(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("filmsPage.fxml");
     }
 
     public void viewCruella(MouseEvent event) throws IOException {
