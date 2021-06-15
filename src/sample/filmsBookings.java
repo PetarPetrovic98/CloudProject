@@ -55,7 +55,7 @@ public class filmsBookings implements Initializable {
         System.out.println("Hello");
 
         //get user_id so we can get values from the current logged in user
-        int userId = 1;
+        int userId = 35;
 
         DBRequests viewBookingRequest = new DBRequests();
         String viewBookingInfoResult = viewBookingRequest.viewOrders(userId);
@@ -64,7 +64,7 @@ public class filmsBookings implements Initializable {
         //Fetching values from the JSON file
         jsonObject = new JSONObject(viewBookingInfoResult);
         int orderId = jsonObject.getInt("order_id");
-        String movieTitle = jsonObject.getString("title");
+        int movieTitle = jsonObject.getInt("movie_id");
         String dateMovieDisplayed = jsonObject.getString("timestamp");
         int peopleBooked = jsonObject.getInt("number_of_seats");
 
