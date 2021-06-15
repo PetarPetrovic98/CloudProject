@@ -25,7 +25,28 @@
       </library>
     </orderEntry>
     <orderEntry type="library" exported="" name="lib" level="project" />
-    <orderEntry type="library" name="java-json" level="project" />
-    <orderEntry type="library" name="gson-2.8.2" level="project" />
+    <orderEntry type="library" exported="" name="java-json" level="project" />
+    <orderEntry type="library" exported="" name="gson-2.8.2" level="project" />
+    <orderEntry type="library" name="lib1" level="project" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Desktop/Libraries for java/gson-2.8.7.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Desktop/Libraries for java/java-json.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$USER_HOME$/Desktop/Libraries for java/java-json.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>
