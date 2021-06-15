@@ -44,7 +44,7 @@ public class DBRequests {
 
         System.out.print(result.toString());
         return result.toString();
-        //TODO: Send the variables to the corresponding UI
+
     }
 
     //To be able to see what seats are booked/free, this method is called
@@ -64,6 +64,6 @@ public class DBRequests {
 
         System.out.print(result.toString());
         return result.toString();
-        //TODO: Send the variables to the corresponding UI
+
     }
 }

@@ -39,7 +39,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutY="315.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="220.0" text="View Bookngs" textFill="#ed7e15">
+            <Button fx:id="viewBookings" layoutY="315.0" mnemonicParsing="false" onAction="#viewBookings" prefHeight="45.0" prefWidth="220.0" text="View Bookngs" textFill="#ed7e15">
                <font>
                   <Font name="System Bold Italic" size="23.0" />
                </font>
@@ -50,10 +50,10 @@
          <children>
             <TableView layoutX="-1.0" layoutY="3.0" prefHeight="504.0" prefWidth="517.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="Order ID" />
-                <TableColumn minWidth="0.0" prefWidth="194.0" text="Movie" />
-                  <TableColumn prefWidth="87.0" text="Date" />
-                  <TableColumn minWidth="8.0" prefWidth="75.0" text="People" />
+                <TableColumn fx:id="orderIdTableColumn" prefWidth="75.0" text="Order ID" />
+                <TableColumn fx:id="movieTableColumn" minWidth="0.0" prefWidth="194.0" text="Movie" />
+                  <TableColumn fx:id="dateTableColumn" prefWidth="87.0" text="Date" />
+                  <TableColumn fx:id="peopleTableColumn" minWidth="8.0" prefWidth="75.0" text="People" />
               </columns>
             </TableView>
          </children></AnchorPane>
