@@ -50,7 +50,7 @@ public class DBRequests {
     public String viewOrders(int user_id) throws IOException {
 
         StringBuilder result = new StringBuilder();
-        URL url = new URL("https://murmuring-plateau-65295.herokuapp.com/ORDERS?user_id="+user_id);
+        URL url = new URL(" https://murmuring-plateau-65295.herokuapp.com/getOrder?user_id="+user_id);
 
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");

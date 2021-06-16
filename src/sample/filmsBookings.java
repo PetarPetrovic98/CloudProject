@@ -56,19 +56,26 @@ public class filmsBookings implements Initializable {
 
         //Fetching values from the JSON file
         jsonObject = new JSONObject(VBHR_hotfix);
-        int order_id = jsonObject.getInt("order_id");
-        int movie_id = jsonObject.getInt("movie_id");
-        String booked_date = jsonObject.getString("booked_date");
-        //int number_of_seats = jsonObject.getInt("number_of_seats");
+        int order_id = jsonObject.getInt("Order ID");
+        String movieTitle = jsonObject.getString("Title");
+        String booked_date = jsonObject.getString("Date");
+        int number_of_seats = jsonObject.getInt("Seats");
+
+        //Print all the values
+        System.out.println(order_id);
+        System.out.println(movieTitle);
+        System.out.println(booked_date);
+        System.out.println(number_of_seats);
+
 
         ObservableList<JSONObject> list = FXCollections.observableArrayList();
         list.add(jsonObject);
 
         //Displaying the fetched values on UI
         orderIdTableColumn.setCellValueFactory(new PropertyValueFactory<>("order_id"));
-        movieTableColumn.setCellValueFactory(new PropertyValueFactory<>("movie_id"));
+        movieTableColumn.setCellValueFactory(new PropertyValueFactory<>("movieTitle"));
         dateTableColumn.setCellValueFactory(new PropertyValueFactory<>("booked_date"));
-        //peopleTableColumn.setCellValueFactory(new PropertyValueFactory<>("number_of_seats"));
+        peopleTableColumn.setCellValueFactory(new PropertyValueFactory<>("number_of_seats"));
 
         tableView.setItems(list);
     }

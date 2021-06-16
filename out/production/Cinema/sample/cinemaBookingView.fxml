@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<SplitPane dividerPositions="0.3" prefHeight="506.0" prefWidth="745.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.cinemaBooking">
+<SplitPane dividerPositions="0.3" prefHeight="506.0" prefWidth="745.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.cinemaBooking">
    <items>
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="161.0" styleClass="background" stylesheets="@style.css">
          <children>
@@ -59,7 +55,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <DatePicker fx:id="date" layoutX="22.0" layoutY="145.0" />
+            <DatePicker fx:id="datePicker" layoutX="22.0" layoutY="145.0" onAction="#getDate" promptText="Enter a date" />
          </children>
       </AnchorPane>
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="511.0" prefWidth="517.0" styleClass="background" stylesheets="@style.css">
@@ -69,7 +65,7 @@
                   <Image url="@../Images/cinema-ticket.jpg" />
                </image>
             </ImageView>
-            <Button alignment="CENTER" layoutX="184.0" layoutY="424.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Book now">
+            <Button fx:id="bookNowBtn" alignment="CENTER" layoutX="184.0" layoutY="424.0" mnemonicParsing="false" onAction="#bookNowBtnAction" prefHeight="30.0" prefWidth="150.0" text="Book now">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -84,7 +80,7 @@
                   <Image url="@../Images/ticket.png" />
                </image>
             </ImageView>
-            <Button id="btnTwenty" fx:id="seat20" alignment="BASELINE_LEFT" layoutX="385.0" layoutY="365.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="20">
+            <Button id="btn20" fx:id="seat20" alignment="BASELINE_LEFT" layoutX="385.0" layoutY="365.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#seatBtnAction" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="20">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true">
                      <image>
@@ -96,7 +92,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="btnNineteen" fx:id="seat19" alignment="BASELINE_LEFT" layoutX="280.0" layoutY="365.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="19">
+            <Button id="btn19" fx:id="seat19" alignment="BASELINE_LEFT" layoutX="280.0" layoutY="365.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#seatBtnAction" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="19">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true">
                      <image>
@@ -108,7 +104,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="btnEighteen" fx:id="seat18" alignment="BASELINE_LEFT" layoutX="175.0" layoutY="365.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="18">
+            <Button id="btn18" fx:id="seat18" alignment="BASELINE_LEFT" layoutX="175.0" layoutY="365.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#seatBtnAction" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="18">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true">
                      <image>
@@ -120,7 +116,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="btnSeventeen" fx:id="seat17" alignment="BASELINE_LEFT" layoutX="70.0" layoutY="365.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="17">
+            <Button id="btn17" fx:id="seat17" alignment="BASELINE_LEFT" layoutX="70.0" layoutY="365.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#seatBtnAction" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="17">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true">
                      <image>
@@ -132,7 +128,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="btnSixteen" fx:id="seat16" alignment="BASELINE_LEFT" layoutX="385.0" layoutY="310.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="16">
+            <Button id="btn16" fx:id="seat16" alignment="BASELINE_LEFT" layoutX="385.0" layoutY="310.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#seatBtnAction" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="16">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true">
                      <image>
@@ -144,7 +140,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="btnFifteen" fx:id="seat15" alignment="BASELINE_LEFT" layoutX="280.0" layoutY="310.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="15">
+            <Button id="btn15" fx:id="seat15" alignment="BASELINE_LEFT" layoutX="280.0" layoutY="310.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#seatBtnAction" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="15">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true">
                      <image>
@@ -156,7 +152,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="btnFourteen" fx:id="seat14" alignment="BASELINE_LEFT" layoutX="175.0" layoutY="310.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="14">
+            <Button id="btn14" fx:id="seat14" alignment="BASELINE_LEFT" layoutX="175.0" layoutY="310.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#seatBtnAction" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="14">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true">
                      <image>
@@ -168,7 +164,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="btnThirteen" fx:id="seat13" alignment="BASELINE_LEFT" layoutX="70.0" layoutY="310.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="13">
+            <Button id="btn13" fx:id="seat13" alignment="BASELINE_LEFT" layoutX="70.0" layoutY="310.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#seatBtnAction" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="13">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true">
                      <image>
@@ -180,7 +176,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="btnTwelve" fx:id="seat12" alignment="BASELINE_LEFT" layoutX="385.0" layoutY="255.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="12">
+            <Button id="btn12" fx:id="seat12" alignment="BASELINE_LEFT" layoutX="385.0" layoutY="255.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#seatBtnAction" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="12">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true">
                      <image>
@@ -192,7 +188,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="btnEleven" fx:id="seat11" alignment="BASELINE_LEFT" layoutX="280.0" layoutY="255.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="11">
+            <Button id="btn11" fx:id="seat11" alignment="BASELINE_LEFT" layoutX="280.0" layoutY="255.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#seatBtnAction" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="11">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true">
                      <image>
@@ -204,7 +200,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="btnTen" fx:id="seat10" alignment="BASELINE_LEFT" layoutX="175.0" layoutY="255.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="10">
+            <Button id="btn10" fx:id="seat10" alignment="BASELINE_LEFT" layoutX="175.0" layoutY="255.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#seatBtnAction" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="10">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true">
                      <image>
@@ -216,7 +212,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="btnNine" fx:id="seat9" alignment="BASELINE_LEFT" layoutX="70.0" layoutY="255.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="9">
+            <Button id="btn9" fx:id="seat9" alignment="BASELINE_LEFT" layoutX="70.0" layoutY="255.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#seatBtnAction" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="9">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true">
                      <image>
@@ -228,7 +224,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="btnEight" fx:id="seat8" alignment="BASELINE_LEFT" layoutX="385.0" layoutY="200.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="8">
+            <Button id="btn8" fx:id="seat8" alignment="BASELINE_LEFT" layoutX="385.0" layoutY="200.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#seatBtnAction" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="8">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true">
                      <image>
@@ -240,7 +236,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="btnSeven" fx:id="seat7" alignment="BASELINE_LEFT" layoutX="280.0" layoutY="200.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="7">
+            <Button id="btn7" fx:id="seat7" alignment="BASELINE_LEFT" layoutX="280.0" layoutY="200.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#seatBtnAction" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="7">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true">
                      <image>
@@ -252,7 +248,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="btnSix" fx:id="seat6" alignment="BASELINE_LEFT" layoutX="175.0" layoutY="200.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="6">
+            <Button id="btn6" fx:id="seat6" alignment="BASELINE_LEFT" layoutX="175.0" layoutY="200.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#seatBtnAction" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="6">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true">
                      <image>
@@ -264,7 +260,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="btnFive" fx:id="seat5" alignment="BASELINE_LEFT" layoutX="70.0" layoutY="200.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="5">
+            <Button id="btn5" fx:id="seat5" alignment="BASELINE_LEFT" layoutX="70.0" layoutY="200.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#seatBtnAction" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="5">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true">
                      <image>
@@ -276,7 +272,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="btnFour" fx:id="seat4" alignment="BASELINE_LEFT" layoutX="385.0" layoutY="145.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="4">
+            <Button id="btn4" fx:id="seat4" alignment="BASELINE_LEFT" layoutX="385.0" layoutY="145.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#seatBtnAction" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="4">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true">
                      <image>
@@ -288,7 +284,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="btnThree" fx:id="seat3" alignment="BASELINE_LEFT" layoutX="280.0" layoutY="145.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="3">
+            <Button id="btn3" fx:id="seat3" alignment="BASELINE_LEFT" layoutX="280.0" layoutY="145.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#seatBtnAction" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" text="3">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true">
                      <image>
@@ -300,7 +296,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="btnTwo" fx:id="seat2" alignment="BASELINE_LEFT" layoutX="175.0" layoutY="145.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" stylesheets="@style.css" text="2">
+            <Button id="btn2" fx:id="seat2" alignment="BASELINE_LEFT" layoutX="175.0" layoutY="145.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#seatBtnAction" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" stylesheets="@style.css" text="2">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true">
                      <image>
@@ -312,7 +308,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="btnOne" fx:id="seat1" alignment="BASELINE_LEFT" layoutX="70.0" layoutY="145.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" stylesheets="@style.css" text="1">
+            <Button id="btn1" fx:id="seat1" alignment="BASELINE_LEFT" layoutX="70.0" layoutY="145.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#seatBtnAction" prefHeight="24.0" prefWidth="58.0" styleClass="seat-button" stylesheets="@style.css" text="1">
                <graphic>
                   <ImageView fx:id="seatImg" fitHeight="24.0" fitWidth="24.0" preserveRatio="true">
                      <image>
