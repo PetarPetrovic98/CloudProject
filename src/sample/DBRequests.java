@@ -81,4 +81,23 @@ public class DBRequests {
         return result.toString();
 
     }
+
+    //To be able to see what seats are booked/free, this method is called
+    public String returnMovieInfo(int movie_id) throws IOException {
+
+        StringBuilder result = new StringBuilder();
+        URL url = new URL("https://murmuring-plateau-65295.herokuapp.com/movie?movie_id="+movie_id);
+
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        conn.setRequestMethod("GET");
+
+        try (var reader = new BufferedReader(new InputStreamReader(conn.getInputStream()))) {
+            for (String line; (line = reader.readLine()) != null; ) {
+                result.append(line);
+            }
+        }
+
+        return result.toString();
+
+    }
 }
