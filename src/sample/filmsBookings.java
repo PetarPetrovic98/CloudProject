@@ -37,6 +37,43 @@ public class filmsBookings implements Initializable {
     MovieSingleton movieSingleton;
 
     @FXML
+    public void viewBookings(ActionEvent event) throws IOException, JSONException {
+        Main m = new Main();
+        m.changeScene("viewBookingPage.fxml");
+
+        UserSingleton userSingleton = UserSingleton.getInstance();
+
+        //get user_id so we can get values from the current logged in user
+        int userId = userSingleton.getUser_id();
+
+        DBRequests viewBookingRequest = new DBRequests();
+        String viewBookingInfoResult = viewBookingRequest.viewOrders(userId);
+        String VBHR_hotfix = (viewBookingInfoResult.length() >0 ) ? viewBookingInfoResult.substring(1, viewBookingInfoResult.length()-1) : "{}";
+
+        //Printing info about user
+        System.out.println("Userid: "+userId);
+        System.out.println("User booking content: "+VBHR_hotfix);
+
+        //Fetching values from the JSON file
+        jsonObject = new JSONObject(VBHR_hotfix);
+        int order_id = jsonObject.getInt("order_id");
+        int movie_id = jsonObject.getInt("movie_id");
+        String booked_date = jsonObject.getString("booked_date");
+        //int number_of_seats = jsonObject.getInt("number_of_seats");
+
+        ObservableList<JSONObject> list = FXCollections.observableArrayList();
+        list.add(jsonObject);
+
+        //Displaying the fetched values on UI
+        orderIdTableColumn.setCellValueFactory(new PropertyValueFactory<>("order_id"));
+        movieTableColumn.setCellValueFactory(new PropertyValueFactory<>("movie_id"));
+        dateTableColumn.setCellValueFactory(new PropertyValueFactory<>("booked_date"));
+        //peopleTableColumn.setCellValueFactory(new PropertyValueFactory<>("number_of_seats"));
+
+        tableView.setItems(list);
+    }
+
+    @FXML
     public void userLogOut(ActionEvent event) throws IOException {
         Main m = new Main();
         m.changeScene("loginPage.fxml");
@@ -46,37 +83,6 @@ public class filmsBookings implements Initializable {
     public void backButton(ActionEvent event) throws IOException {
         Main m = new Main();
         m.changeScene("welcomePage.fxml");
-    }
-
-    @FXML
-    public void viewBookings(ActionEvent event) throws IOException, JSONException {
-        Main m = new Main();
-        m.changeScene("viewBookingPage.fxml");
-        System.out.println("Hello");
-
-        //get user_id so we can get values from the current logged in user
-        int userId = 35;
-
-        DBRequests viewBookingRequest = new DBRequests();
-        String viewBookingInfoResult = viewBookingRequest.viewOrders(userId);
-        System.out.println("ViewBooking classen: "+viewBookingInfoResult);
-
-        //Fetching values from the JSON file
-        jsonObject = new JSONObject(viewBookingInfoResult);
-        int orderId = jsonObject.getInt("order_id");
-        int movieTitle = jsonObject.getInt("movie_id");
-        String dateMovieDisplayed = jsonObject.getString("timestamp");
-        int peopleBooked = jsonObject.getInt("number_of_seats");
-
-        ObservableList<JSONObject> list = FXCollections.observableArrayList(new JSONObject(jsonObject));
-
-        //Displaying the fetched values on UI
-        orderIdTableColumn.setCellValueFactory(new PropertyValueFactory<>("orderId"));
-        movieTableColumn.setCellValueFactory(new PropertyValueFactory<>("movieTitle"));
-        dateTableColumn.setCellValueFactory(new PropertyValueFactory<>("dateMovieDisplayed"));
-        peopleTableColumn.setCellValueFactory(new PropertyValueFactory<>("peopleBooked"));
-
-        tableView.setItems(list);
     }
 
     @FXML
