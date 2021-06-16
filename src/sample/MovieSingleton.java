@@ -6,6 +6,7 @@ public class MovieSingleton {
         private int movieID;
         private String movieTitle;
         private String time;
+        private double seatPrice;
 
     public int getMovieID() {
         return movieID;
@@ -29,6 +30,14 @@ public class MovieSingleton {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public double getSeatPrice() {
+        return seatPrice;
+    }
+
+    public void setSeatPrice(double seatPrice) {
+        this.seatPrice = seatPrice;
     }
 
     // private constructor restricted to this class itself
