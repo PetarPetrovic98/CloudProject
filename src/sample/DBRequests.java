@@ -64,7 +64,7 @@ public class DBRequests {
     }
 
     //To be able to see what seats are booked/free, this method is called
-    public String returnFreeSeat(int movie_id, String booked_date) throws IOException {
+    public String returnBookedSeats(int movie_id, String booked_date) throws IOException {
 
         StringBuilder result = new StringBuilder();
         URL url = new URL("https://murmuring-plateau-65295.herokuapp.com/occupiedSeats?movie_id="+movie_id+"&booked_date="+booked_date);

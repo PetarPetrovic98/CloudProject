@@ -1,5 +1,6 @@
 package sample;
 
+import com.google.gson.Gson;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -48,6 +49,8 @@ public class cinemaBooking implements Initializable {
     @FXML private Button seat18;
     @FXML private Button seat19;
     @FXML private Button seat20;
+
+    private ArrayList<Button> seats = new ArrayList<>();
 
     // order variables
     private ArrayList<String> seatsList = new ArrayList<>();
@@ -119,7 +122,33 @@ public class cinemaBooking implements Initializable {
 
     // returns the date picked by the user from datePicker
     public void getDate(ActionEvent event){
+        for (Button b:seats) {
+            b.setDisable(false);
+        }
+        MovieSingleton movieSingleton = MovieSingleton.getInstance();
         bookedDate = datePicker.getValue();
+        System.out.println(bookedDate);
+        DBRequests dbRequests = new DBRequests();
+        try {
+            String occupiedSeats = dbRequests.returnBookedSeats(movieSingleton.getMovieID(), bookedDate.toString());
+            System.out.println(occupiedSeats);
+
+            Gson gson = new Gson();
+
+            SeatWrapper[] seatsArray = gson.fromJson(occupiedSeats, SeatWrapper[].class);
+
+            if (seatsArray.length==0) System.out.println("No occupied seats");
+            else {
+                for (SeatWrapper seat : seatsArray) {
+                    System.out.println(seat.seat_number);
+                    seats.get(seat.seat_number-1).setDisable(true);
+
+                }
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     // adds or removes the clicked seat (seat number) to a list for booking
@@ -150,5 +179,32 @@ public class cinemaBooking implements Initializable {
         MovieSingleton movieSingleton = MovieSingleton.getInstance();
         setTimeLabelText(movieSingleton.getTime());
         setMovieLabelText(movieSingleton.getMovieTitle());
+
+        seats.add(seat1);
+        seats.add(seat2);
+        seats.add(seat3);
+        seats.add(seat4);
+        seats.add(seat5);
+        seats.add(seat6);
+        seats.add(seat7);
+        seats.add(seat8);
+        seats.add(seat9);
+        seats.add(seat10);
+        seats.add(seat11);
+        seats.add(seat12);
+        seats.add(seat13);
+        seats.add(seat14);
+        seats.add(seat15);
+        seats.add(seat16);
+        seats.add(seat17);
+        seats.add(seat18);
+        seats.add(seat19);
+        seats.add(seat20);
+
+
+    }
+
+    public class SeatWrapper{
+        int seat_number;
     }
 }
