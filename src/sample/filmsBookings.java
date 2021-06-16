@@ -88,35 +88,40 @@ public class filmsBookings implements Initializable {
     public void viewCruella(MouseEvent event) throws IOException {
         Main m = new Main();
         movieSingleton.setMovieTitle("Cruella");
-        movieSingleton.setTime("17:50");
+        movieSingleton.setTime("20:30");
+        movieSingleton.setSeatPrice(130);
         m.changeScene("cruella.fxml");
     }
 
     public void viewKong(MouseEvent event) throws IOException {
         Main m = new Main();
         movieSingleton.setMovieTitle("Kong");
-        movieSingleton.setTime("17:50");
+        movieSingleton.setTime("13:30");
+        movieSingleton.setSeatPrice(150);
         m.changeScene("kong.fxml");
     }
 
     public void viewSpiral(MouseEvent event) throws IOException {
         Main m = new Main();
         movieSingleton.setMovieTitle("Spiral");
-        movieSingleton.setTime("17:50");
+        movieSingleton.setTime("15:30");
+        movieSingleton.setSeatPrice(120);
         m.changeScene("spiral.fxml");
     }
 
     public void vievNobody(MouseEvent event) throws IOException {
         Main m = new Main();
         movieSingleton.setMovieTitle("Nobody");
-        movieSingleton.setTime("17:50");
+        movieSingleton.setTime("17:30");
+        movieSingleton.setSeatPrice(120);
         m.changeScene("nobody.fxml");
     }
 
     public void viewTove(MouseEvent event) throws IOException {
         Main m = new Main();
         movieSingleton.setMovieTitle("Tove");
-        movieSingleton.setTime("17:50");
+        movieSingleton.setTime("19:30");
+        movieSingleton.setSeatPrice(150);
         m.changeScene("tove.fxml");
     }
 
