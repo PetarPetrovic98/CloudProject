@@ -37,10 +37,14 @@ public class filmsBookings implements Initializable {
     MovieSingleton movieSingleton;
 
     @FXML
-    public void viewBookings(ActionEvent event) throws IOException, JSONException {
+    public void viewBookings(ActionEvent event) throws IOException {
         Main m = new Main();
-        m.changeScene("viewBookingPage.fxml");
+        System.out.println("view bookingPage");
+         m.changeScene("viewBookingPage.fxml");
 
+    }
+
+    public void fillTableView() throws JSONException, IOException {
         UserSingleton userSingleton = UserSingleton.getInstance();
 
         //get user_id so we can get values from the current logged in user
@@ -79,6 +83,11 @@ public class filmsBookings implements Initializable {
 
         //Values set to tableView if there is more than 1 list
         tableView.setItems(list);
+    }
+
+    @FXML
+    public void viewBookings2(ActionEvent event) throws IOException, JSONException {
+       fillTableView();
     }
 
     @FXML
@@ -147,5 +156,16 @@ public class filmsBookings implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         movieSingleton = MovieSingleton.getInstance();
+        //if the tableview is not null it means that we are currently on the viewBookingPage.fxml
+        if (tableView != null){
+        try {
+            fillTableView();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+           }
+
     }
 }
