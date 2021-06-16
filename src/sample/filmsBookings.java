@@ -20,19 +20,19 @@ public class filmsBookings implements Initializable {
     JSONObject jsonObject;
 
     @FXML
-    private TableView<JSONObject> tableView;
+    private TableView<ViewOrders> tableView;
 
     @FXML
-    private TableColumn<JSONObject, Integer> orderIdTableColumn;
+    private TableColumn<ViewOrders, String> orderIdTableColumn;
 
     @FXML
-    private TableColumn<JSONObject, String> movieTableColumn;
+    private TableColumn<ViewOrders, String> movieTableColumn;
 
     @FXML
-    private TableColumn<JSONObject, String> dateTableColumn;
+    private TableColumn<ViewOrders, String> dateTableColumn;
 
     @FXML
-    private TableColumn<JSONObject, Integer> peopleTableColumn;
+    private TableColumn<ViewOrders, String> peopleTableColumn;
 
     MovieSingleton movieSingleton;
 
@@ -56,27 +56,28 @@ public class filmsBookings implements Initializable {
 
         //Fetching values from the JSON file
         jsonObject = new JSONObject(VBHR_hotfix);
-        int order_id = jsonObject.getInt("Order ID");
+        String order_id = String.valueOf(jsonObject.getInt("Order ID"));
         String movieTitle = jsonObject.getString("Title");
         String booked_date = jsonObject.getString("Date");
-        int number_of_seats = jsonObject.getInt("Seats");
+        String number_of_seats = String.valueOf(jsonObject.getInt("Seats"));
 
         //Print all the values
-        System.out.println(order_id);
-        System.out.println(movieTitle);
-        System.out.println(booked_date);
-        System.out.println(number_of_seats);
+        System.out.println("Order ID: "+order_id);
+        System.out.println("Movie: "+movieTitle);
+        System.out.println("Date: "+booked_date);
+        System.out.println("Seat Nbr: "+number_of_seats);
 
-
-        ObservableList<JSONObject> list = FXCollections.observableArrayList();
-        list.add(jsonObject);
+        //Construct and set the values so we can display it with TableColumn
+        ObservableList<ViewOrders> list = FXCollections.observableArrayList();
+        list.add(new ViewOrders(order_id,movieTitle,booked_date,number_of_seats));
 
         //Displaying the fetched values on UI
-        orderIdTableColumn.setCellValueFactory(new PropertyValueFactory<>("order_id"));
-        movieTableColumn.setCellValueFactory(new PropertyValueFactory<>("movieTitle"));
-        dateTableColumn.setCellValueFactory(new PropertyValueFactory<>("booked_date"));
-        peopleTableColumn.setCellValueFactory(new PropertyValueFactory<>("number_of_seats"));
+        orderIdTableColumn.setCellValueFactory(new PropertyValueFactory<ViewOrders,String>("order_id"));
+        movieTableColumn.setCellValueFactory(new PropertyValueFactory<ViewOrders,String>("movieTitle"));
+        dateTableColumn.setCellValueFactory(new PropertyValueFactory<ViewOrders,String>("booked_date"));
+        peopleTableColumn.setCellValueFactory(new PropertyValueFactory<ViewOrders,String>("number_of_seats"));
 
+        //Values set to tableView if there is more than 1 list
         tableView.setItems(list);
     }
 
