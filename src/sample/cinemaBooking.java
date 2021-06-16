@@ -24,6 +24,8 @@ public class cinemaBooking implements Initializable {
     @FXML private Label movieLabel;
     @FXML private Label timeLabel;
 
+    @FXML private Label totalPriceLabel;
+
     @FXML private ImageView seatImg;
 
     @FXML private Button seat1;
@@ -53,6 +55,9 @@ public class cinemaBooking implements Initializable {
     private String timeStamp;
     @FXML private DatePicker datePicker;
 
+    UserSingleton user = UserSingleton.getInstance();
+    MovieSingleton movie = MovieSingleton.getInstance();
+    private double totalPrice;
     //Image myImage = new Image(getClass().getResourceAsStream("/Images/seat1inverted.png"));
 
     public void setMovieLabelText(String text){
@@ -77,26 +82,14 @@ public class cinemaBooking implements Initializable {
 
     public void bookNowBtnAction(ActionEvent event) throws IOException {
 
-        // order is only for testing
-//        ArrayList<Integer> seats = new ArrayList<>();
-//        seats.add(1);
-//        seats.add(2);
-//        Order order = new Order("2021-06-06 12:24:31", "2021-06-10", 25, 35, seats);
-//
-//        DBRequests dbr = new DBRequests();
-//        dbr.createOrders(order);
-
-        //---------------------------------------------------------------------
-        //todo get movieID from singleton
-
         // store the information from the UI and sends an order when book now btn is pressed
         timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.util.Date());
         String bookedDateStr = bookedDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 
-        MovieSingleton movie = MovieSingleton.getInstance();
+        movie = MovieSingleton.getInstance();
         int movieID = movie.getMovieID();
 
-        UserSingleton user = UserSingleton.getInstance();
+        user = UserSingleton.getInstance();
         int userID = user.getUser_id();
 
         ArrayList<Integer> seatsListNew  = getIntArray(seatsList);
@@ -106,10 +99,11 @@ public class cinemaBooking implements Initializable {
         DBRequests dbr = new DBRequests();
         dbr.createOrders(order);
 
-        System.out.println("Timestamp: " + timeStamp + ", BookedDate: " + bookedDateStr + ", MovieID: " + movieID + ", UserID: " + userID + ", Seats: " + seatsListNew);
+        // clear the list after a order is sent
         seatsList.clear();
     }
 
+    // used for converting string array to int array
     private ArrayList<Integer> getIntArray(ArrayList<String> stringArray){
         ArrayList<Integer> result = new ArrayList<Integer>();
         for(String stringValue : stringArray) {
@@ -123,23 +117,28 @@ public class cinemaBooking implements Initializable {
         return result;
     }
 
+    // returns the date picked by the user from datePicker
     public void getDate(ActionEvent event){
         bookedDate = datePicker.getValue();
     }
 
+    // adds or removes the clicked seat (seat number) to a list for booking
     public void seatBtnAction(ActionEvent event){
         final Node source = (Node) event.getSource();
 
+        // gets the seat number
         String seatId = source.getId();
         String seatNum = seatId.replaceFirst("btn", "");
 
         if (seatsList.contains(seatNum)){
             seatsList.remove(seatNum);
-            System.out.println("removed " + seatNum);
+            totalPrice -= movie.getSeatPrice();
+            totalPriceLabel.setText(totalPrice + " kr");
             return;
         }
         seatsList.add(seatNum);
-        System.out.println("added " + seatNum);
+        totalPrice += movie.getSeatPrice();
+        totalPriceLabel.setText(totalPrice + " kr");
     }
 
     /* public void displayImage(){ use this later to change the seat into taken maybe
