@@ -15,6 +15,7 @@ public class DBRequests {
     //When a client books a movie this method is called
     public void createOrders(Order order) throws IOException {
 
+        // create remote connection
         StringBuilder result = new StringBuilder();
         URL url = new URL("https://murmuring-plateau-65295.herokuapp.com/ordersTest");
 
@@ -23,20 +24,17 @@ public class DBRequests {
         conn.setDoOutput(true);
         conn.setRequestProperty("Content-Type", "application/json");
 
-        // order is only for testing
-        ArrayList<Integer> seats = new ArrayList<>();
-        seats.add(1);
-        seats.add(2);
-        order = new Order("2021-06-06 12:24:31", "2021-06-10", 25, 35, seats);
-
+        // convert order to json string
         Gson gson = new Gson();
         String data = gson.toJson(order);
 
+        // send data to backend
         try(OutputStream os = conn.getOutputStream()) {
             byte[] input = data.getBytes("utf-8");
             os.write(input, 0, input.length);
         }
 
+        // receive data from backend
         try(BufferedReader br = new BufferedReader(
                 new InputStreamReader(conn.getInputStream(), "utf-8"))) {
             StringBuilder response = new StringBuilder();
