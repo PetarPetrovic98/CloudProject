@@ -56,6 +56,16 @@
                </font>
             </Label>
             <DatePicker fx:id="datePicker" layoutX="22.0" layoutY="145.0" onAction="#getDate" promptText="Enter a date" />
+            <Label layoutX="26.0" layoutY="192.0" prefHeight="27.0" prefWidth="90.0" text="Total Price:" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="totalPriceLabel" layoutX="120.0" layoutY="192.0" prefHeight="27.0" prefWidth="90.0" text="0.0 Kr" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="511.0" prefWidth="517.0" styleClass="background" stylesheets="@style.css">
