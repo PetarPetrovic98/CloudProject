@@ -96,6 +96,7 @@ public class filmsBookings implements Initializable {
         movieSingleton.setMovieTitle("Cruella");
         movieSingleton.setTime("20:30");
         movieSingleton.setSeatPrice(130);
+        movieSingleton.setMovieID(25);
         m.changeScene("cruella.fxml");
     }
 
@@ -104,6 +105,7 @@ public class filmsBookings implements Initializable {
         movieSingleton.setMovieTitle("Kong");
         movieSingleton.setTime("13:30");
         movieSingleton.setSeatPrice(150);
+        movieSingleton.setMovieID(35);
         m.changeScene("kong.fxml");
     }
 
@@ -112,6 +114,7 @@ public class filmsBookings implements Initializable {
         movieSingleton.setMovieTitle("Spiral");
         movieSingleton.setTime("15:30");
         movieSingleton.setSeatPrice(120);
+        movieSingleton.setMovieID(45);
         m.changeScene("spiral.fxml");
     }
 
@@ -120,6 +123,7 @@ public class filmsBookings implements Initializable {
         movieSingleton.setMovieTitle("Nobody");
         movieSingleton.setTime("17:30");
         movieSingleton.setSeatPrice(120);
+        movieSingleton.setMovieID(55);
         m.changeScene("nobody.fxml");
     }
 
@@ -128,6 +132,7 @@ public class filmsBookings implements Initializable {
         movieSingleton.setMovieTitle("Tove");
         movieSingleton.setTime("19:30");
         movieSingleton.setSeatPrice(150);
+        movieSingleton.setMovieID(65);
         m.changeScene("tove.fxml");
     }
 
