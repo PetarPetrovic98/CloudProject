@@ -142,7 +142,7 @@ public class cinemaBooking implements Initializable {
                 for (SeatWrapper seat : seatsArray) {
                     System.out.println(seat.seat_number);
                     seats.get(seat.seat_number-1).setDisable(true);
-
+                    seats.get(seat.seat_number-1).setStyle("-fx-background-color: Red");
                 }
             }
 
@@ -161,11 +161,13 @@ public class cinemaBooking implements Initializable {
 
         if (seatsList.contains(seatNum)){
             seatsList.remove(seatNum);
+            source.setStyle("-fx-background-color: MediumSeaGreen");
             totalPrice -= movie.getSeatPrice();
             totalPriceLabel.setText(totalPrice + " kr");
             return;
         }
         seatsList.add(seatNum);
+        source.setStyle("-fx-background-color: Yellow");
         totalPrice += movie.getSeatPrice();
         totalPriceLabel.setText(totalPrice + " kr");
     }
@@ -201,6 +203,9 @@ public class cinemaBooking implements Initializable {
         seats.add(seat19);
         seats.add(seat20);
 
+        for(Button b: seats){
+            b.setStyle("-fx-background-color: MediumSeaGreen");
+        }
 
     }
 
