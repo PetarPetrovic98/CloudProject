@@ -132,40 +132,44 @@ public class filmsBookings implements Initializable {
         getMovieDescription();
     }
 
-    public void viewKong(MouseEvent event) throws IOException {
+    public void viewKong(MouseEvent event) throws IOException, JSONException {
         Main m = new Main();
         movieSingleton.setMovieTitle("Kong");
         movieSingleton.setTime("13:30");
         movieSingleton.setSeatPrice(150);
         movieSingleton.setMovieID(35);
         m.changeScene("kong.fxml");
+        getMovieDescription();
     }
 
-    public void viewSpiral(MouseEvent event) throws IOException {
+    public void viewSpiral(MouseEvent event) throws IOException, JSONException {
         Main m = new Main();
         movieSingleton.setMovieTitle("Spiral");
         movieSingleton.setTime("15:30");
         movieSingleton.setSeatPrice(120);
         movieSingleton.setMovieID(45);
         m.changeScene("spiral.fxml");
+        getMovieDescription();
     }
 
-    public void vievNobody(MouseEvent event) throws IOException {
+    public void vievNobody(MouseEvent event) throws IOException, JSONException {
         Main m = new Main();
         movieSingleton.setMovieTitle("Nobody");
         movieSingleton.setTime("17:30");
         movieSingleton.setSeatPrice(120);
         movieSingleton.setMovieID(55);
         m.changeScene("nobody.fxml");
+        getMovieDescription();
     }
 
-    public void viewTove(MouseEvent event) throws IOException {
+    public void viewTove(MouseEvent event) throws IOException, JSONException {
         Main m = new Main();
         movieSingleton.setMovieTitle("Tove");
         movieSingleton.setTime("19:30");
         movieSingleton.setSeatPrice(150);
         movieSingleton.setMovieID(65);
         m.changeScene("tove.fxml");
+        getMovieDescription();
     }
 
     @Override
