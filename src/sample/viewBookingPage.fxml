@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.3" prefHeight="506.0" prefWidth="745.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.filmsBookings">
+<SplitPane dividerPositions="0.3" prefHeight="506.0" prefWidth="745.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.filmsBookings">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="161.0" styleClass="background" stylesheets="@style.css">
          <children>
@@ -58,7 +58,7 @@
                 <TableColumn fx:id="orderIdTableColumn" prefWidth="75.0" text="Order ID" />
                 <TableColumn fx:id="movieTableColumn" minWidth="0.0" prefWidth="194.0" text="Movie" />
                   <TableColumn fx:id="dateTableColumn" prefWidth="87.0" text="Date" />
-                  <TableColumn fx:id="peopleTableColumn" minWidth="8.0" prefWidth="75.0" text="People" />
+                  <TableColumn fx:id="peopleTableColumn" minWidth="8.0" prefWidth="75.0" text="Seat Nbr" />
               </columns>
             </TableView>
          </children></AnchorPane>
