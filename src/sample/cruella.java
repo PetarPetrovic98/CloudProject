@@ -31,4 +31,9 @@ public class cruella {
         movieSingleton.setTime(movieSingleton.getTime());
         m.changeScene("cinemaBookingView.fxml");
     }
+    public void adad(ActionEvent event) throws IOException {
+        DBRequests dbRequests = new DBRequests();
+        MovieSingleton movieSingleton = MovieSingleton.getInstance();
+        dbRequests.returnMovieInfo(movieSingleton.getMovieID());
+    }
 }
