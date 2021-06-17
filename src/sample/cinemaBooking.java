@@ -124,6 +124,7 @@ public class cinemaBooking implements Initializable {
     public void getDate(ActionEvent event){
         for (Button b:seats) {
             b.setDisable(false);
+            b.setStyle("-fx-background-color: MediumSeaGreen");
         }
         MovieSingleton movieSingleton = MovieSingleton.getInstance();
         bookedDate = datePicker.getValue();
@@ -202,10 +203,6 @@ public class cinemaBooking implements Initializable {
         seats.add(seat18);
         seats.add(seat19);
         seats.add(seat20);
-
-        for(Button b: seats){
-            b.setStyle("-fx-background-color: MediumSeaGreen");
-        }
 
     }
 
