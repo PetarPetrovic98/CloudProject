@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -18,6 +19,7 @@ import java.util.ResourceBundle;
 
 public class filmsBookings implements Initializable {
     JSONObject jsonObject;
+    cruella cruella = new cruella();
 
     @FXML
     private TableView<ViewOrders> tableView;
@@ -108,13 +110,26 @@ public class filmsBookings implements Initializable {
         m.changeScene("filmsPage.fxml");
     }
 
-    public void viewCruella(MouseEvent event) throws IOException {
+    public void getMovieDescription() throws JSONException, IOException {
+        DBRequests dbRequests = new DBRequests();
+        MovieSingleton movieSingleton = MovieSingleton.getInstance();
+        String movieInfoResult = dbRequests.returnMovieInfo(movieSingleton.getMovieID());
+        String VBHR_hotfix = (movieInfoResult.length() >0 ) ? movieInfoResult.substring(1, movieInfoResult.length()-1) : "{}";
+
+        jsonObject = new JSONObject(VBHR_hotfix);
+        String descriptionOfMovie = jsonObject.getString("description");
+        System.out.println("Movie Description: "+descriptionOfMovie);
+        cruella.movieInformation(descriptionOfMovie);
+    }
+
+    public void viewCruella(MouseEvent event) throws IOException, JSONException {
         Main m = new Main();
         movieSingleton.setMovieTitle("Cruella");
         movieSingleton.setTime("20:30");
         movieSingleton.setSeatPrice(130);
         movieSingleton.setMovieID(25);
         m.changeScene("cruella.fxml");
+        getMovieDescription();
     }
 
     public void viewKong(MouseEvent event) throws IOException {

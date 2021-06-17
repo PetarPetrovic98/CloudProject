@@ -3,16 +3,17 @@ package sample;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 
 public class cruella {
+    JSONObject jsonObject;
 
     @FXML
-    private Label movieTitle;
+    private Label infoLabel;
 
-    @FXML
-    private Label timeLabel;
 
     public void userLogOut(ActionEvent event) throws IOException {
         Main m = new Main();
@@ -24,16 +25,30 @@ public class cruella {
         m.changeScene("filmsPage.fxml");
     }
 
-    public void bookNow(ActionEvent event) throws IOException {
+    public void bookNow(ActionEvent event) throws IOException, JSONException {
         Main m = new Main();
         MovieSingleton movieSingleton = MovieSingleton.getInstance();
         movieSingleton.setMovieTitle(movieSingleton.getMovieTitle());
         movieSingleton.setTime(movieSingleton.getTime());
         m.changeScene("cinemaBookingView.fxml");
     }
-    public void adad(ActionEvent event) throws IOException {
+    public void movieInformation(String text){
+       infoLabel.setText(text);
+    }
+
+    /*
+
+    public void displayText() throws IOException, JSONException {
         DBRequests dbRequests = new DBRequests();
         MovieSingleton movieSingleton = MovieSingleton.getInstance();
-        dbRequests.returnMovieInfo(movieSingleton.getMovieID());
+        String movieInfoResult = dbRequests.returnMovieInfo(movieSingleton.getMovieID());
+        String VBHR_hotfix = (movieInfoResult.length() >0 ) ? movieInfoResult.substring(1, movieInfoResult.length()-1) : "{}";
+
+        jsonObject = new JSONObject(VBHR_hotfix);
+        String descriptionOfMovie = jsonObject.getString("description");
+        System.out.println("Movie Description: "+descriptionOfMovie);
+
     }
+
+     */
 }
