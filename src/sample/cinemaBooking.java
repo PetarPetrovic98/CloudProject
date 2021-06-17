@@ -129,6 +129,12 @@ public class cinemaBooking implements Initializable {
         MovieSingleton movieSingleton = MovieSingleton.getInstance();
         bookedDate = datePicker.getValue();
         System.out.println(bookedDate);
+
+        // reset total price when date is changed
+        totalPrice = 0;
+        totalPriceLabel.setText(totalPrice + " kr");
+        seatsList.clear();
+
         DBRequests dbRequests = new DBRequests();
         try {
             String occupiedSeats = dbRequests.returnBookedSeats(movieSingleton.getMovieID(), bookedDate.toString());
