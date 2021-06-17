@@ -29,6 +29,19 @@ public class Main extends Application {
         stg.getScene().setRoot(pane);
     }
 
+    public static Scene creatScene(String fxml)throws IOException {
+        Parent pane = FXMLLoader.load(Main.class.getResource(fxml));
+        Scene scene = new Scene(pane,745,506);
+        return scene;
+    }
+
+    public void setStage(Stage stage){
+        this.stg=stage;
+    }
+
+    public static Stage getStage() {
+        return stg;
+    }
 
     public static void main(String[] args) {
         launch(args);

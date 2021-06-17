@@ -15,6 +15,9 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class filmsBookings implements Initializable {
@@ -46,7 +49,7 @@ public class filmsBookings implements Initializable {
 
     }
 
-    public void fillTableView() throws JSONException, IOException {
+    public void fillTableView() throws JSONException, IOException, ParseException {
         UserSingleton userSingleton = UserSingleton.getInstance();
 
         //get user_id so we can get values from the current logged in user
@@ -60,6 +63,8 @@ public class filmsBookings implements Initializable {
         System.out.println("Userid: "+userId);
         System.out.println("User booking content: "+VBHR_hotfix);
 
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+
         //Fetching values from the JSON file
         jsonObject = new JSONObject(VBHR_hotfix);
         String order_id = String.valueOf(jsonObject.getInt("Order ID"));
@@ -67,15 +72,17 @@ public class filmsBookings implements Initializable {
         String booked_date = jsonObject.getString("Date");
         String number_of_seats = String.valueOf(jsonObject.getInt("Seats"));
 
+        Date date = format.parse(booked_date);
+
         //Print all the values
         System.out.println("Order ID: "+order_id);
         System.out.println("Movie: "+movieTitle);
-        System.out.println("Date: "+booked_date);
+        System.out.println("Date: "+format.format(date));
         System.out.println("Seat Nbr: "+number_of_seats);
 
         //Construct and set the values so we can display it with TableColumn
         ObservableList<ViewOrders> list = FXCollections.observableArrayList();
-        list.add(new ViewOrders(order_id,movieTitle,booked_date,number_of_seats));
+        list.add(new ViewOrders(order_id,movieTitle,format.format(date),number_of_seats));
 
         //Displaying the fetched values on UI
         orderIdTableColumn.setCellValueFactory(new PropertyValueFactory<ViewOrders,String>("order_id"));
@@ -88,7 +95,7 @@ public class filmsBookings implements Initializable {
     }
 
     @FXML
-    public void viewBookings2(ActionEvent event) throws IOException, JSONException {
+    public void viewBookings2(ActionEvent event) throws IOException, JSONException, ParseException {
        fillTableView();
     }
 
@@ -123,13 +130,13 @@ public class filmsBookings implements Initializable {
     }
 
     public void viewCruella(MouseEvent event) throws IOException, JSONException {
-        Main m = new Main();
+        //Main m = new Main();
         movieSingleton.setMovieTitle("Cruella");
         movieSingleton.setTime("20:30");
         movieSingleton.setSeatPrice(130);
         movieSingleton.setMovieID(25);
-        m.changeScene("cruella.fxml");
-        getMovieDescription();
+        Main.getStage().setScene(Main.creatScene("cruella.fxml"));
+                //.changeScene("cruella.fxml");
     }
 
     public void viewKong(MouseEvent event) throws IOException, JSONException {
@@ -139,7 +146,6 @@ public class filmsBookings implements Initializable {
         movieSingleton.setSeatPrice(150);
         movieSingleton.setMovieID(35);
         m.changeScene("kong.fxml");
-        getMovieDescription();
     }
 
     public void viewSpiral(MouseEvent event) throws IOException, JSONException {
@@ -149,7 +155,6 @@ public class filmsBookings implements Initializable {
         movieSingleton.setSeatPrice(120);
         movieSingleton.setMovieID(45);
         m.changeScene("spiral.fxml");
-        getMovieDescription();
     }
 
     public void vievNobody(MouseEvent event) throws IOException, JSONException {
@@ -159,7 +164,6 @@ public class filmsBookings implements Initializable {
         movieSingleton.setSeatPrice(120);
         movieSingleton.setMovieID(55);
         m.changeScene("nobody.fxml");
-        getMovieDescription();
     }
 
     public void viewTove(MouseEvent event) throws IOException, JSONException {
@@ -169,7 +173,6 @@ public class filmsBookings implements Initializable {
         movieSingleton.setSeatPrice(150);
         movieSingleton.setMovieID(65);
         m.changeScene("tove.fxml");
-        getMovieDescription();
     }
 
     @Override
@@ -183,8 +186,10 @@ public class filmsBookings implements Initializable {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
-           }
+        }
 
     }
 }

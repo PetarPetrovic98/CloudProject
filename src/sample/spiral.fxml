@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.3" prefHeight="506.0" prefWidth="745.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.cruella">
+<SplitPane dividerPositions="0.3" prefHeight="506.0" prefWidth="745.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.cruella">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="161.0" styleClass="background" stylesheets="@style.css">
          <children>
@@ -34,7 +37,7 @@
                </font>
             </Label>
             <Label layoutX="37.0" layoutY="94.0" prefHeight="25.0" prefWidth="220.0" text="R   1h33min  Crime, Horror, Mystery" textFill="WHITE" />
-            <Label fx:id="infoLabel" layoutX="37.0" layoutY="119.0" prefHeight="116.0" prefWidth="451.0" text="Text" textFill="WHITE" wrapText="true" />
+            <Label fx:id="textLabel" layoutX="37.0" layoutY="119.0" prefHeight="116.0" prefWidth="451.0" text="Working in the shadow of his father, an esteemed police veteran (Samuel L. Jackson), brash Detective Ezekiel &quot;Zeke&quot; Banks (Chris Rock) and his rookie partner (Max Minghella) take charge of a grisly investigation into murders that are eerily reminiscent of the city's gruesome past. Unwittingly entrapped in a deepening mystery, Zeke finds himself at the center of the killer's morbid game" textFill="WHITE" wrapText="true" />
             <Label alignment="CENTER_RIGHT" layoutX="37.0" layoutY="289.0" prefHeight="31.0" prefWidth="56.0" text="From:" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />

@@ -37,7 +37,7 @@
                </font>
             </Label>
             <Label layoutX="37.0" layoutY="94.0" prefHeight="25.0" prefWidth="220.0" text="PG-13   1h54min  Action, Sci-Fi, Thriller" textFill="WHITE" />
-            <Label fx:id="infoLabel" layoutX="37.0" layoutY="119.0" prefHeight="116.0" prefWidth="451.0" text="Text" textFill="WHITE" wrapText="true" />
+            <Label fx:id="infoLabel" layoutX="37.0" layoutY="119.0" prefHeight="116.0" prefWidth="451.0" text="Legends collide as Godzilla and Kong, the two most powerful forces of nature, clash on the big screen in a spectacular battle for the ages. As a squadron embarks on a perilous mission into fantastic uncharted terrain, unearthing clues to the Titans' very origins and mankind's survival, a conspiracy threatens to wipe the creatures, both good and bad, from the face of the earth forever" textFill="WHITE" wrapText="true" />
             <Label alignment="CENTER_RIGHT" layoutX="37.0" layoutY="289.0" prefHeight="31.0" prefWidth="56.0" text="From:" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />

@@ -12,8 +12,10 @@ public class cruella {
     JSONObject jsonObject;
 
     @FXML
-    private Label infoLabel;
+    private Label testLabel;
 
+    @FXML
+    private Label textLabel;
 
     public void userLogOut(ActionEvent event) throws IOException {
         Main m = new Main();
@@ -32,8 +34,10 @@ public class cruella {
         movieSingleton.setTime(movieSingleton.getTime());
         m.changeScene("cinemaBookingView.fxml");
     }
+
     public void movieInformation(String text){
-       infoLabel.setText(text);
+       //textLabel.setText(text);
+        testLabel.setText("HELLO");
     }
 
     /*
