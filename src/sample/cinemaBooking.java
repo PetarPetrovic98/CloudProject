@@ -138,7 +138,7 @@ public class cinemaBooking implements Initializable {
         DBRequests dbRequests = new DBRequests();
         try {
             String occupiedSeats = dbRequests.returnBookedSeats(movieSingleton.getMovieID(), bookedDate.toString());
-            System.out.println(occupiedSeats);
+            System.out.println("Occupied seats: "+occupiedSeats);
 
             Gson gson = new Gson();
 
@@ -147,7 +147,7 @@ public class cinemaBooking implements Initializable {
             if (seatsArray.length==0) System.out.println("No occupied seats");
             else {
                 for (SeatWrapper seat : seatsArray) {
-                    System.out.println(seat.seat_number);
+                    System.out.println("Seat num: "+seat.seat_number);
                     seats.get(seat.seat_number-1).setDisable(true);
                     seats.get(seat.seat_number-1).setStyle("-fx-background-color: Red");
                 }

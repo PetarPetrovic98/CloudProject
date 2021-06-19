@@ -17,7 +17,7 @@ public class DBRequests {
 
         // create remote connection
         StringBuilder result = new StringBuilder();
-        URL url = new URL("https://murmuring-plateau-65295.herokuapp.com/ordersTest");
+        URL url = new URL("https://murmuring-plateau-65295.herokuapp.com/orders");
 
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("POST");
