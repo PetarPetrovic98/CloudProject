@@ -1,4 +1,4 @@
-# Cinema Booking App <img src="https://imagizer.imageshack.com/img924/9722/4EcBJs.png" alt="Icon" style="zoom:25%;" />
+# Cinema Booking App <img src="https://imagizer.imageshack.com/img924/9722/4EcBJs.png" alt="Icon"  width="25" />
 
 #### A student Cloud project
 
@@ -16,7 +16,7 @@ Startup by running `Main` and the app will first display:
   
   * password: pass
   
-    <img src="https://imagizer.imageshack.com/img924/4238/VbTocM.png" alt="Log in" style="zoom: 67%;" />
+    <img src="https://imagizer.imageshack.com/img924/4238/VbTocM.png" alt="Log in"  width="500"/>
   
     
   
@@ -25,20 +25,20 @@ Startup by running `Main` and the app will first display:
   
   - View Bookings
   
-    <img src="https://imagizer.imageshack.com/img924/6217/eAYqRO.png" alt="Welcome" style="zoom:67%;" />
+    <img src="https://imagizer.imageshack.com/img924/6217/eAYqRO.png" alt="Welcome" width="500" />
   
     
   
 - By choosing `View Bookings` a table opens up, showing already booked information for the current user. If there's any.
   - There are two buttons with options to go back or log out. And these are consistent with almost every scene in this app.
   
-    <img src="https://imagizer.imageshack.com/img923/2384/Dd96Ly.png" alt="View Bookings" style="zoom:67%;" />
+    <img src="https://imagizer.imageshack.com/img923/2384/Dd96Ly.png" alt="View Bookings" width="500" />
   
     
   
 - By choosing  the `View Films` button, 5 current cinema movie posters are shown.
   
-  <img src="https://imagizer.imageshack.com/img924/1964/80vSJA.png" alt="Films" style="zoom:67%;" />
+  <img src="https://imagizer.imageshack.com/img924/1964/80vSJA.png" alt="Films" width="500" />
   
   
   
@@ -46,7 +46,7 @@ Startup by running `Main` and the app will first display:
     - Title, rating, duration, genre, synopsis, date and time of showing, as well as the price.
     - A `Book Now` button, if one wishes to book the current viewed movie.
     
-    <img src="https://imagizer.imageshack.com/img922/5659/qHifBA.png" alt="Cruella" style="zoom:67%;" />
+    <img src="https://imagizer.imageshack.com/img922/5659/qHifBA.png" alt="Cruella" width="500" />
     
     
   
@@ -58,4 +58,4 @@ Startup by running `Main` and the app will first display:
     - The price will be calculated as well.
     - And finish the booking by clicking the `Book now` button.
 
-<img src="https://imagizer.imageshack.com/img922/5249/trZzjq.png" alt="Cinema booking" style="zoom:67%;" />
+<img src="https://imagizer.imageshack.com/img922/5249/trZzjq.png" alt="Cinema booking" width="500" />
