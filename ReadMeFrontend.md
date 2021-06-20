@@ -38,7 +38,7 @@ Startup by running `Main` and the app will first display:
   
 - By choosing  the `View Films` button, 5 current cinema movie posters are shown.
   
-  <img src="https://imagizer.imageshack.com/img924/1964/80vSJA.png" alt="Films" width="500" />
+    <img src="https://imagizer.imageshack.com/img924/1964/80vSJA.png" alt="Films" width="500" />
   
   
   
@@ -58,4 +58,4 @@ Startup by running `Main` and the app will first display:
     - The price will be calculated as well.
     - And finish the booking by clicking the `Book now` button.
 
-<img src="https://imagizer.imageshack.com/img922/5249/trZzjq.png" alt="Cinema booking" width="500" />
+    <img src="https://imagizer.imageshack.com/img922/5249/trZzjq.png" alt="Cinema booking" width="500" />
