@@ -10,6 +10,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -21,7 +22,8 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 public class filmsBookings implements Initializable {
-    JSONObject jsonObject;
+    JSONArray jsonArray;
+    ObservableList<ViewOrders> list = FXCollections.observableArrayList();
     cruella cruella = new cruella();
 
     @FXML
@@ -66,23 +68,30 @@ public class filmsBookings implements Initializable {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
         //Fetching values from the JSON file
-        jsonObject = new JSONObject(VBHR_hotfix);
-        String order_id = String.valueOf(jsonObject.getInt("Order ID"));
-        String movieTitle = jsonObject.getString("Title");
-        String booked_date = jsonObject.getString("Date");
-        String number_of_seats = String.valueOf(jsonObject.getInt("Seats"));
+        jsonArray = new JSONArray(viewBookingInfoResult);
 
-        Date date = format.parse(booked_date);
 
-        //Print all the values
-        System.out.println("Order ID: "+order_id);
-        System.out.println("Movie: "+movieTitle);
-        System.out.println("Date: "+format.format(date));
-        System.out.println("Seat Nbr: "+number_of_seats);
+        for (int i = 0; i < jsonArray.length(); i++){
+            System.out.println("Orders of user id: "+userId+" is following "+jsonArray.get(i));
 
-        //Construct and set the values so we can display it with TableColumn
-        ObservableList<ViewOrders> list = FXCollections.observableArrayList();
-        list.add(new ViewOrders(order_id,movieTitle,format.format(date),number_of_seats));
+            JSONObject json_obj = jsonArray.getJSONObject(i);
+
+            String orderID = String.valueOf(json_obj.getInt("Order ID"));
+            String movieTitle = json_obj.getString("Title");
+            String booked_date = json_obj.getString("Date");
+            String number_of_seats = String.valueOf(json_obj.getInt("Seats"));
+
+            System.out.println("------------------------------");
+            System.out.println("ID: "+orderID);
+            System.out.println("Title: "+movieTitle);
+            System.out.println("Date: "+booked_date);
+            System.out.println("Seat: "+number_of_seats);
+            System.out.println("------------------------------");
+
+            Date date = format.parse(booked_date);
+
+            list.add(new ViewOrders(orderID,movieTitle,format.format(date),number_of_seats));
+        }
 
         //Displaying the fetched values on UI
         orderIdTableColumn.setCellValueFactory(new PropertyValueFactory<ViewOrders,String>("order_id"));
@@ -92,6 +101,7 @@ public class filmsBookings implements Initializable {
 
         //Values set to tableView if there is more than 1 list
         tableView.setItems(list);
+
     }
 
     @FXML
@@ -116,7 +126,7 @@ public class filmsBookings implements Initializable {
         Main m = new Main();
         m.changeScene("filmsPage.fxml");
     }
-
+/*
     public void getMovieDescription() throws JSONException, IOException {
         DBRequests dbRequests = new DBRequests();
         MovieSingleton movieSingleton = MovieSingleton.getInstance();
@@ -128,6 +138,8 @@ public class filmsBookings implements Initializable {
         System.out.println("Movie Description: "+descriptionOfMovie);
         cruella.movieInformation(descriptionOfMovie);
     }
+
+ */
 
     public void viewCruella(MouseEvent event) throws IOException, JSONException {
         //Main m = new Main();
