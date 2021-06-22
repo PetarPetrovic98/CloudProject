@@ -19,19 +19,14 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Label layoutX="42.0" layoutY="207.0" text="Hi," textFill="#ed7e15">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
             <ImageView fitHeight="173.0" fitWidth="165.0" layoutX="28.0" layoutY="24.0">
                <image>
                   <Image url="@../Images/defaultuser.png" />
                </image>
             </ImageView>
-            <Label layoutX="74.0" layoutY="207.0" text="username" textFill="#ed7e15">
+            <Label fx:id="userNameLabel" layoutX="25.0" layoutY="207.0" prefHeight="30.0" prefWidth="171.0" textFill="#ed7e15">
                <font>
-                  <Font size="20.0" />
+                  <Font name="System Bold" size="17.0" />
                </font>
             </Label>
             <Button fx:id="viewFilms" layoutX="-1.0" layoutY="265.0" mnemonicParsing="false" onAction="#viewFilms" prefHeight="45.0" prefWidth="220.0" styleClass="button2" stylesheets="@style.css" text="View Films" textFill="#ed7e15">

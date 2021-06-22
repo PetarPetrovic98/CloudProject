@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button; //Works without this
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 import javafx.util.Duration;
@@ -16,34 +17,12 @@ import java.util.ArrayList;
 import java.io.IOException;
 import java.util.ResourceBundle;
 
-public class welcome { //implements Initializable {
-
-   /*  @FXML     //and this
-    private Button logOutButton; //...
-
+public class welcome implements Initializable{ //implements Initializable {
     @FXML
-    private ImageView slideShow;
+    private Label userNameLabel;
+    UserSingleton userSingleton;
+    String fetchUserName;
 
-    int count;
-
-    public void slideshow() {
-        ArrayList<Image> images = new ArrayList<Image>();
-        images.add(new Image("/Images/cruella.jpg"));
-        images.add(new Image("/Images/Igodvskong.jpg"));
-        images.add(new Image("/Images/godzillavskong.jpg"));
-        images.add(new Image("/Images/cruellasmaller.jpg"));
-
-
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(5), event -> (
-                slideShow.setImage(images.get(count));
-                count++;
-            if (count == 4) {
-                count = 0;
-            }
-        )));
-        timeline.setCycleCount(Timeline.INDEFINITE);
-        timeline.play();
-    } */
 
     public void userLogOut(ActionEvent event) throws IOException {
         Main m = new Main();
@@ -60,8 +39,11 @@ public class welcome { //implements Initializable {
         m.changeScene("viewBookingPage.fxml");
     }
 
-  /*  @Override
+    @Override
     public void initialize(URL location, ResourceBundle resourceBundle) {
-        slideshow();
-    } */
+        userSingleton = UserSingleton.getInstance();
+        fetchUserName = userSingleton.getUsername();
+        String name = fetchUserName.substring(0, 1).toUpperCase() + fetchUserName.substring(1);
+        userNameLabel.setText("Welcome, "+name+"!");
+    }
 }

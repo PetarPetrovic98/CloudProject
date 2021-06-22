@@ -23,7 +23,7 @@ public class UserSingleton {
     }
 
     // private constructor restricted to this class itself
-    private UserSingleton()
+    public UserSingleton()
     {
     }
 

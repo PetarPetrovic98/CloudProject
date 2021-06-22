@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,9 +23,19 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 public class filmsBookings implements Initializable {
+    @FXML
+    private Label userNameLabel;
+    UserSingleton userSingleton;
+
     JSONArray jsonArray;
     ObservableList<ViewOrders> list = FXCollections.observableArrayList();
     cruella cruella = new cruella();
+
+    String orderID;
+    String movieTitle;
+    String booked_date;
+    String number_of_seats;
+    String fetchUserName;
 
     @FXML
     private TableView<ViewOrders> tableView;
@@ -76,28 +87,56 @@ public class filmsBookings implements Initializable {
 
             JSONObject json_obj = jsonArray.getJSONObject(i);
 
-            String orderID = String.valueOf(json_obj.getInt("Order ID"));
-            String movieTitle = json_obj.getString("Title");
-            String booked_date = json_obj.getString("Date");
-            String number_of_seats = String.valueOf(json_obj.getInt("Seats"));
-
-            System.out.println("------------------------------");
-            System.out.println("ID: "+orderID);
-            System.out.println("Title: "+movieTitle);
-            System.out.println("Date: "+booked_date);
-            System.out.println("Seat: "+number_of_seats);
-            System.out.println("------------------------------");
+            orderID = String.valueOf(json_obj.getInt("Order ID"));
+            movieTitle = json_obj.getString("Title");
+            booked_date = json_obj.getString("Date");
+            number_of_seats = String.valueOf(json_obj.getInt("Seats"));
 
             Date date = format.parse(booked_date);
 
-            list.add(new ViewOrders(orderID,movieTitle,format.format(date),number_of_seats));
-        }
+            System.out.println("------------------------------");
+            System.out.println("ID: " + orderID);
+            System.out.println("Title: " + movieTitle);
+            System.out.println("Date: " + format.format(date));
+            System.out.println("Seat: " + number_of_seats);
 
-        //Displaying the fetched values on UI
-        orderIdTableColumn.setCellValueFactory(new PropertyValueFactory<ViewOrders,String>("order_id"));
-        movieTableColumn.setCellValueFactory(new PropertyValueFactory<ViewOrders,String>("movieTitle"));
-        dateTableColumn.setCellValueFactory(new PropertyValueFactory<ViewOrders,String>("booked_date"));
-        peopleTableColumn.setCellValueFactory(new PropertyValueFactory<ViewOrders,String>("number_of_seats"));
+/*
+
+            for (int k = i+1; k < jsonArray.length(); k++){
+                JSONObject checkJsonObj = jsonArray.getJSONObject(k);
+                String checkOrderID = String.valueOf(checkJsonObj.getInt("Order ID"));
+
+                if (orderID.equals(checkOrderID)){
+                    System.out.println("THERE IS MORE THAN ONE ORDER ID: "+ checkOrderID);
+
+                    //Displaying the fetched values on UI
+                    orderIdTableColumn.setCellValueFactory(new PropertyValueFactory<ViewOrders,String>("order_id"));
+                    movieTableColumn.setCellValueFactory(new PropertyValueFactory<ViewOrders,String>("movieTitle"));
+                    dateTableColumn.setCellValueFactory(new PropertyValueFactory<ViewOrders,String>("booked_date"));
+                    peopleTableColumn.setCellValueFactory(cellData -> Bindings.createStringBinding(() -> cellData.getValue().getNumber_of_seats()+ ", " + cellData.getValue().getNumber_of_seats()));
+                }else {
+
+                    //Displaying the fetched values on UI
+                    orderIdTableColumn.setCellValueFactory(new PropertyValueFactory<ViewOrders,String>("order_id"));
+                    movieTableColumn.setCellValueFactory(new PropertyValueFactory<ViewOrders,String>("movieTitle"));
+                    dateTableColumn.setCellValueFactory(new PropertyValueFactory<ViewOrders,String>("booked_date"));
+                    peopleTableColumn.setCellValueFactory(new PropertyValueFactory<ViewOrders,String>("number_of_seats"));
+                }
+
+            }
+*/
+            System.out.println("------------------------------");
+
+            list.add(new ViewOrders(orderID,movieTitle,format.format(date),number_of_seats));
+
+            //Displaying the fetched values on UI
+            orderIdTableColumn.setCellValueFactory(new PropertyValueFactory<ViewOrders,String>("order_id"));
+            movieTableColumn.setCellValueFactory(new PropertyValueFactory<ViewOrders,String>("movieTitle"));
+            dateTableColumn.setCellValueFactory(new PropertyValueFactory<ViewOrders,String>("booked_date"));
+            peopleTableColumn.setCellValueFactory(new PropertyValueFactory<ViewOrders,String>("number_of_seats"));
+
+        }
+        //peopleTableColumn.setCellValueFactory(cellData -> Bindings.createStringBinding(() -> cellData.getValue().getNumber_of_seats()+ ", " + cellData.getValue().getNumber_of_seats()));
 
         //Values set to tableView if there is more than 1 list
         tableView.setItems(list);
@@ -125,6 +164,9 @@ public class filmsBookings implements Initializable {
     public void viewFilms(ActionEvent event) throws IOException {
         Main m = new Main();
         m.changeScene("filmsPage.fxml");
+        UserSingleton userSingleton = UserSingleton.getInstance();
+        String userName = userSingleton.getUsername();
+        userNameLabel.setText("Current user: "+userName);
     }
 /*
     public void getMovieDescription() throws JSONException, IOException {
@@ -189,6 +231,11 @@ public class filmsBookings implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        userSingleton = UserSingleton.getInstance();
+        fetchUserName = userSingleton.getUsername();
+        String name = fetchUserName.substring(0, 1).toUpperCase() + fetchUserName.substring(1);
+        userNameLabel.setText("Current user: "+name);
+
         movieSingleton = MovieSingleton.getInstance();
         //if the tableview is not null it means that we are currently on the viewBookingPage.fxml
         if (tableView != null){
