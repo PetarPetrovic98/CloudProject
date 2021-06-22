@@ -107,6 +107,9 @@ public class cinemaBooking implements Initializable {
         DBRequests dbr = new DBRequests();
         dbr.createOrders(order);
 
+        // clear the list after a order is sent
+        seatsList.clear();
+
         // switch scene when a booking is created
         Main m = new Main();
         m.changeScene("viewBookingPage.fxml");
