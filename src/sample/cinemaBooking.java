@@ -86,6 +86,9 @@ public class cinemaBooking implements Initializable {
 
     public void bookNowBtnAction(ActionEvent event) throws IOException {
 
+        if (seatsList.size() == 0)
+            return;
+
         // store the information from the UI and sends an order when book now btn is pressed
         timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.util.Date());
         String bookedDateStr = bookedDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
