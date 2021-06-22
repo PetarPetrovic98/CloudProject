@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -38,6 +39,12 @@ public class filmsBookings implements Initializable {
     String fetchUserName;
 
     @FXML
+    private Button viewBookings;
+
+    @FXML
+    private Button viewFilmButton;
+
+    @FXML
     private TableView<ViewOrders> tableView;
 
     @FXML
@@ -56,13 +63,15 @@ public class filmsBookings implements Initializable {
 
     @FXML
     public void viewBookings(ActionEvent event) throws IOException {
+        viewFilmButton.setDisable(true);
         Main m = new Main();
-        System.out.println("view bookingPage");
          m.changeScene("viewBookingPage.fxml");
 
     }
 
     public void fillTableView() throws JSONException, IOException, ParseException {
+        viewBookings.setDisable(true);
+
         UserSingleton userSingleton = UserSingleton.getInstance();
 
         //get user_id so we can get values from the current logged in user
@@ -70,11 +79,6 @@ public class filmsBookings implements Initializable {
 
         DBRequests viewBookingRequest = new DBRequests();
         String viewBookingInfoResult = viewBookingRequest.viewOrders(userId);
-        String VBHR_hotfix = (viewBookingInfoResult.length() >0 ) ? viewBookingInfoResult.substring(1, viewBookingInfoResult.length()-1) : "{}";
-
-        //Printing info about user
-        System.out.println("Userid: "+userId);
-        System.out.println("User booking content: "+VBHR_hotfix);
 
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
