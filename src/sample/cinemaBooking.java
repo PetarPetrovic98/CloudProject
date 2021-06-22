@@ -5,10 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.DateCell;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -52,6 +49,7 @@ public class cinemaBooking implements Initializable {
     @FXML private Button seat20;
 
     private ArrayList<Button> seats = new ArrayList<>();
+    private Alert alert;
 
     // order variables
     private ArrayList<String> seatsList = new ArrayList<>();
@@ -86,7 +84,10 @@ public class cinemaBooking implements Initializable {
 
     public void bookNowBtnAction(ActionEvent event) throws IOException {
 
-        if (seatsList.size() == 0)
+        // either no seats are selected or no date is selected
+        if (!isDateSelected())
+            return;
+        if (!isSeatSelected())
             return;
 
         // store the information from the UI and sends an order when book now btn is pressed
@@ -106,8 +107,31 @@ public class cinemaBooking implements Initializable {
         DBRequests dbr = new DBRequests();
         dbr.createOrders(order);
 
-        // clear the list after a order is sent
-        seatsList.clear();
+        // switch scene when a booking is created
+        Main m = new Main();
+        m.changeScene("viewBookingPage.fxml");
+    }
+
+    private boolean isDateSelected(){
+        if (bookedDate == null){
+            alert = new Alert(Alert.AlertType.NONE);
+            alert.getDialogPane().getButtonTypes().add(ButtonType.OK);
+            alert.setContentText("Please enter a date!");
+            alert.show();
+            return false;
+        }
+        return true;
+    }
+
+    private boolean isSeatSelected(){
+        if (seatsList.size() == 0){
+            alert = new Alert(Alert.AlertType.NONE);
+            alert.getDialogPane().getButtonTypes().add(ButtonType.OK);
+            alert.setContentText("Please enter a seat!");
+            alert.show();
+            return false;
+        }
+        return true;
     }
 
     // used for converting string array to int array
