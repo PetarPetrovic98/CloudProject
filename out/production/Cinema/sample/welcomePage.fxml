@@ -32,7 +32,7 @@
                   <Font name="System Bold Italic" size="23.0" />
                </font>
             </Button>
-            <Button fx:id="viewBookings" layoutY="315.0" mnemonicParsing="false" onAction="#viewBookings" prefHeight="45.0" prefWidth="220.0" styleClass="button2" stylesheets="@style.css" text="View Bookngs" textFill="#ed7e15">
+            <Button fx:id="viewBookings" layoutY="315.0" mnemonicParsing="false" onAction="#viewBookings" prefHeight="45.0" prefWidth="220.0" styleClass="button2" stylesheets="@style.css" text="View Bookings" textFill="#ed7e15">
                <font>
                   <Font name="System Bold Italic" size="23.0" />
                </font>
