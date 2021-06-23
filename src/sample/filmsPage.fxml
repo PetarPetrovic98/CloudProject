@@ -22,7 +22,7 @@
                   <Image url="@../Images/defaultuser.png" />
                </image>
             </ImageView>
-            <Label fx:id="userNameLabel" layoutX="29.0" layoutY="207.0" prefHeight="26.0" prefWidth="165.0" textFill="#ed7e15">
+            <Label fx:id="userNameLabel" layoutX="25.0" layoutY="207.0" prefHeight="30.0" prefWidth="171.0" textFill="#ed7e15">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
@@ -46,7 +46,7 @@
       </AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #c4c4c4;">
          <children>
-            <ImageView fx:id="cruella" fitHeight="229.0" fitWidth="160.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#viewCruella">
+            <ImageView fx:id="cruellapic" fitHeight="229.0" fitWidth="160.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#viewCruella">
                <image>
                   <Image url="@../Images/cruella.jpg" />
                </image>

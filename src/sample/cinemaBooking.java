@@ -6,12 +6,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -80,6 +78,16 @@ public class cinemaBooking implements Initializable {
     public void backButton(ActionEvent event) throws IOException {
         Main m = new Main();
         m.changeScene("filmsPage.fxml");
+    }
+
+    public void viewFilms(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("filmsPage.fxml");
+    }
+
+    public void viewBookings(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("viewBookingPage.fxml");
     }
 
     public void bookNowBtnAction(ActionEvent event) throws IOException {

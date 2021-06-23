@@ -22,7 +22,7 @@
                   <Image url="@../Images/defaultuser.png" />
                </image>
             </ImageView>
-            <Label fx:id="userNameLabel" layoutX="29.0" layoutY="207.0" prefHeight="26.0" prefWidth="165.0" textFill="#ed7e15">
+            <Label fx:id="userNameLabel" layoutX="25.0" layoutY="207.0" prefHeight="30.0" prefWidth="171.0" textFill="#ed7e15">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
