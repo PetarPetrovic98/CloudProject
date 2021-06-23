@@ -110,9 +110,11 @@ public class cinemaBooking implements Initializable {
         // clear the list after a order is sent
         seatsList.clear();
 
-        // switch scene when a booking is created
-        Main m = new Main();
-        m.changeScene("viewBookingPage.fxml");
+        //Alert message when a booking was made
+        alert = new Alert(Alert.AlertType.NONE);
+        alert.getDialogPane().getButtonTypes().add(ButtonType.OK);
+        alert.setContentText("Booking was made successfully!");
+        alert.show();
     }
 
     private boolean isDateSelected(){
