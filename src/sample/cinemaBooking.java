@@ -82,6 +82,16 @@ public class cinemaBooking implements Initializable {
         m.changeScene("filmsPage.fxml");
     }
 
+    public void viewBookings(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("viewBookingPage.fxml");
+    }
+
+    public void viewFilms(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("filmsPage.fxml");
+    }
+
     public void bookNowBtnAction(ActionEvent event) throws IOException {
 
         // either no seats are selected or no date is selected
